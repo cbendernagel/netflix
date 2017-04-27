@@ -13,16 +13,16 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
 
-import Model.Person;
+import Model.Employee;
 import org.hibernate.criterion.Restrictions;
 /**
  *
  * @author charles
  */
 @Repository
-public class PersonDAO{
+public class EmployeeDAO{
    
-    private static final Logger logger = LoggerFactory.getLogger(PersonDAO.class);
+    private static final Logger logger = LoggerFactory.getLogger(EmployeeDAO.class);
     
     private SessionFactory sessionFactory;
 
@@ -31,56 +31,56 @@ public class PersonDAO{
     }
 
     
-    public void addPerson(Person u) {
+    public void addEmployee(Employee u) {
             Session session = this.sessionFactory.getCurrentSession();
             session.persist(u);
-            logger.info("Person saved successfully, Person Details="+u);
+            logger.info("Employee saved successfully, Employee Details="+u);
     }
 
     
-    public void updatePerson(Person u) {
+    public void updateEmployee(Employee u) {
             Session session = this.sessionFactory.getCurrentSession();
             session.update(u);
-            logger.info("Person updated successfully, Person Details="+u);
+            logger.info("Employee updated successfully, Employee Details="+u);
     }
 
     @SuppressWarnings("unchecked")
-    public List<Person> listPersons() {
+    public List<Employee> listEmployees() {
             Session session = this.sessionFactory.getCurrentSession();
-            List<Person> personsList = session.createQuery("from Person").list();
-            for(Person u : personsList){
-                    logger.info("Person List::"+u);
+            List<Employee> employeesList = session.createQuery("from Employee").list();
+            for(Employee u : employeesList){
+                    logger.info("Employee List::"+u);
             }
-            return personsList;
+            return employeesList;
     }
 
     
-    public Person getPersonById(int id) {
+    public Employee getEmployeeById(int id) {
             Session session = this.sessionFactory.getCurrentSession();		
-            Person u = (Person) session.load(Person.class, new Integer(id));
-            logger.info("Person loaded successfully, Person details="+u);
+            Employee u = (Employee) session.load(Employee.class, new Integer(id));
+            logger.info("Employee loaded successfully, Employee details="+u);
             return u;
     }
     
-    public Person getPersonByEmail(String email) {
+    public Employee getEmployeeByEmail(String email) {
             Session session = this.sessionFactory.getCurrentSession();	
-            List persons = session.createCriteria(Person.class).add(Restrictions.eq("email", email)).list();
-            if (persons.isEmpty()){
+            List employees = session.createCriteria(Employee.class).add(Restrictions.eq("email", email)).list();
+            if (employees.isEmpty()){
                 return null;
             }
-            Person u = (Person) persons.get(0);
-            logger.info("Person loaded successfully, Person details="+u);
+            Employee u = (Employee) employees.get(0);
+            logger.info("Employee loaded successfully, Employee details="+u);
             return u;
     }
 
     
-    public void removePerson(int id) {
+    public void removeEmployee(int id) {
             Session session = this.sessionFactory.getCurrentSession();
-            Person u = (Person) session.load(Person.class, new Integer(id));
+            Employee u = (Employee) session.load(Employee.class, new Integer(id));
             if(null != u){
                     session.delete(u);
             }
-            logger.info("Person deleted successfully, person details="+u);
+            logger.info("Employee deleted successfully, person details="+u);
     }
     
 

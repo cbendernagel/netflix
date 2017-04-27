@@ -13,16 +13,16 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
 
-import Model.Person;
+import Model.Actor;
 import org.hibernate.criterion.Restrictions;
 /**
  *
  * @author charles
  */
 @Repository
-public class PersonDAO{
+public class ActorDAO{
    
-    private static final Logger logger = LoggerFactory.getLogger(PersonDAO.class);
+    private static final Logger logger = LoggerFactory.getLogger(ActorDAO.class);
     
     private SessionFactory sessionFactory;
 
@@ -31,56 +31,56 @@ public class PersonDAO{
     }
 
     
-    public void addPerson(Person u) {
+    public void addActor(Actor u) {
             Session session = this.sessionFactory.getCurrentSession();
             session.persist(u);
-            logger.info("Person saved successfully, Person Details="+u);
+            logger.info("Actor saved successfully, Actor Details="+u);
     }
 
     
-    public void updatePerson(Person u) {
+    public void updateActor(Actor u) {
             Session session = this.sessionFactory.getCurrentSession();
             session.update(u);
-            logger.info("Person updated successfully, Person Details="+u);
+            logger.info("Actor updated successfully, Actor Details="+u);
     }
 
     @SuppressWarnings("unchecked")
-    public List<Person> listPersons() {
+    public List<Actor> listActors() {
             Session session = this.sessionFactory.getCurrentSession();
-            List<Person> personsList = session.createQuery("from Person").list();
-            for(Person u : personsList){
-                    logger.info("Person List::"+u);
+            List<Actor> actorsList = session.createQuery("from Actor").list();
+            for(Actor u : actorsList){
+                    logger.info("Actor List::"+u);
             }
-            return personsList;
+            return actorsList;
     }
 
     
-    public Person getPersonById(int id) {
+    public Actor getActorById(int id) {
             Session session = this.sessionFactory.getCurrentSession();		
-            Person u = (Person) session.load(Person.class, new Integer(id));
-            logger.info("Person loaded successfully, Person details="+u);
+            Actor u = (Actor) session.load(Actor.class, new Integer(id));
+            logger.info("Actor loaded successfully, Actor details="+u);
             return u;
     }
     
-    public Person getPersonByEmail(String email) {
+    public Actor getActorByEmail(String email) {
             Session session = this.sessionFactory.getCurrentSession();	
-            List persons = session.createCriteria(Person.class).add(Restrictions.eq("email", email)).list();
-            if (persons.isEmpty()){
+            List actors = session.createCriteria(Actor.class).add(Restrictions.eq("email", email)).list();
+            if (actors.isEmpty()){
                 return null;
             }
-            Person u = (Person) persons.get(0);
-            logger.info("Person loaded successfully, Person details="+u);
+            Actor u = (Actor) actors.get(0);
+            logger.info("Actor loaded successfully, Actor details="+u);
             return u;
     }
 
     
-    public void removePerson(int id) {
+    public void removeActor(int id) {
             Session session = this.sessionFactory.getCurrentSession();
-            Person u = (Person) session.load(Person.class, new Integer(id));
+            Actor u = (Actor) session.load(Actor.class, new Integer(id));
             if(null != u){
                     session.delete(u);
             }
-            logger.info("Person deleted successfully, person details="+u);
+            logger.info("Actor deleted successfully, person details="+u);
     }
     
 

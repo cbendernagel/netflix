@@ -13,16 +13,16 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
 
-import Model.Person;
+import Model.Location;
 import org.hibernate.criterion.Restrictions;
 /**
  *
  * @author charles
  */
 @Repository
-public class PersonDAO{
+public class LocationDAO{
    
-    private static final Logger logger = LoggerFactory.getLogger(PersonDAO.class);
+    private static final Logger logger = LoggerFactory.getLogger(LocationDAO.class);
     
     private SessionFactory sessionFactory;
 
@@ -31,56 +31,56 @@ public class PersonDAO{
     }
 
     
-    public void addPerson(Person u) {
+    public void addLocation(Location u) {
             Session session = this.sessionFactory.getCurrentSession();
             session.persist(u);
-            logger.info("Person saved successfully, Person Details="+u);
+            logger.info("Location saved successfully, Location Details="+u);
     }
 
     
-    public void updatePerson(Person u) {
+    public void updateLocation(Location u) {
             Session session = this.sessionFactory.getCurrentSession();
             session.update(u);
-            logger.info("Person updated successfully, Person Details="+u);
+            logger.info("Location updated successfully, Location Details="+u);
     }
 
     @SuppressWarnings("unchecked")
-    public List<Person> listPersons() {
+    public List<Location> listLocations() {
             Session session = this.sessionFactory.getCurrentSession();
-            List<Person> personsList = session.createQuery("from Person").list();
-            for(Person u : personsList){
-                    logger.info("Person List::"+u);
+            List<Location> locationsList = session.createQuery("from Location").list();
+            for(Location u : locationsList){
+                    logger.info("Location List::"+u);
             }
-            return personsList;
+            return locationsList;
     }
 
     
-    public Person getPersonById(int id) {
+    public Location getLocationById(int id) {
             Session session = this.sessionFactory.getCurrentSession();		
-            Person u = (Person) session.load(Person.class, new Integer(id));
-            logger.info("Person loaded successfully, Person details="+u);
+            Location u = (Location) session.load(Location.class, new Integer(id));
+            logger.info("Location loaded successfully, Location details="+u);
             return u;
     }
     
-    public Person getPersonByEmail(String email) {
+    public Location getLocationByEmail(String email) {
             Session session = this.sessionFactory.getCurrentSession();	
-            List persons = session.createCriteria(Person.class).add(Restrictions.eq("email", email)).list();
-            if (persons.isEmpty()){
+            List locations = session.createCriteria(Location.class).add(Restrictions.eq("email", email)).list();
+            if (locations.isEmpty()){
                 return null;
             }
-            Person u = (Person) persons.get(0);
-            logger.info("Person loaded successfully, Person details="+u);
+            Location u = (Location) locations.get(0);
+            logger.info("Location loaded successfully, Location details="+u);
             return u;
     }
 
     
-    public void removePerson(int id) {
+    public void removeLocation(int id) {
             Session session = this.sessionFactory.getCurrentSession();
-            Person u = (Person) session.load(Person.class, new Integer(id));
+            Location u = (Location) session.load(Location.class, new Integer(id));
             if(null != u){
                     session.delete(u);
             }
-            logger.info("Person deleted successfully, person details="+u);
+            logger.info("Location deleted successfully, person details="+u);
     }
     
 

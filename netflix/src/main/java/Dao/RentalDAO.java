@@ -13,16 +13,16 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
 
-import Model.Person;
+import Model.Rental;
 import org.hibernate.criterion.Restrictions;
 /**
  *
  * @author charles
  */
 @Repository
-public class PersonDAO{
+public class RentalDAO{
    
-    private static final Logger logger = LoggerFactory.getLogger(PersonDAO.class);
+    private static final Logger logger = LoggerFactory.getLogger(RentalDAO.class);
     
     private SessionFactory sessionFactory;
 
@@ -31,56 +31,56 @@ public class PersonDAO{
     }
 
     
-    public void addPerson(Person u) {
+    public void addRental(Rental u) {
             Session session = this.sessionFactory.getCurrentSession();
             session.persist(u);
-            logger.info("Person saved successfully, Person Details="+u);
+            logger.info("Rental saved successfully, Rental Details="+u);
     }
 
     
-    public void updatePerson(Person u) {
+    public void updateRental(Rental u) {
             Session session = this.sessionFactory.getCurrentSession();
             session.update(u);
-            logger.info("Person updated successfully, Person Details="+u);
+            logger.info("Rental updated successfully, Rental Details="+u);
     }
 
     @SuppressWarnings("unchecked")
-    public List<Person> listPersons() {
+    public List<Rental> listRentals() {
             Session session = this.sessionFactory.getCurrentSession();
-            List<Person> personsList = session.createQuery("from Person").list();
-            for(Person u : personsList){
-                    logger.info("Person List::"+u);
+            List<Rental> rentalsList = session.createQuery("from Rental").list();
+            for(Rental u : rentalsList){
+                    logger.info("Rental List::"+u);
             }
-            return personsList;
+            return rentalsList;
     }
 
     
-    public Person getPersonById(int id) {
+    public Rental getRentalById(int id) {
             Session session = this.sessionFactory.getCurrentSession();		
-            Person u = (Person) session.load(Person.class, new Integer(id));
-            logger.info("Person loaded successfully, Person details="+u);
+            Rental u = (Rental) session.load(Rental.class, new Integer(id));
+            logger.info("Rental loaded successfully, Rental details="+u);
             return u;
     }
     
-    public Person getPersonByEmail(String email) {
+    public Rental getRentalByEmail(String email) {
             Session session = this.sessionFactory.getCurrentSession();	
-            List persons = session.createCriteria(Person.class).add(Restrictions.eq("email", email)).list();
-            if (persons.isEmpty()){
+            List rentals = session.createCriteria(Rental.class).add(Restrictions.eq("email", email)).list();
+            if (rentals.isEmpty()){
                 return null;
             }
-            Person u = (Person) persons.get(0);
-            logger.info("Person loaded successfully, Person details="+u);
+            Rental u = (Rental) rentals.get(0);
+            logger.info("Rental loaded successfully, Rental details="+u);
             return u;
     }
 
     
-    public void removePerson(int id) {
+    public void removeRental(int id) {
             Session session = this.sessionFactory.getCurrentSession();
-            Person u = (Person) session.load(Person.class, new Integer(id));
+            Rental u = (Rental) session.load(Rental.class, new Integer(id));
             if(null != u){
                     session.delete(u);
             }
-            logger.info("Person deleted successfully, person details="+u);
+            logger.info("Rental deleted successfully, person details="+u);
     }
     
 

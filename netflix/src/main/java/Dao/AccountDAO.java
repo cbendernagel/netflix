@@ -34,22 +34,22 @@ public class AccountDAO{
     public void addAccount(Account u) {
             Session session = this.sessionFactory.getCurrentSession();
             session.persist(u);
-            logger.info("User saved successfully, User Details="+u);
+            logger.info("Account saved successfully, Account Details="+u);
     }
 
     
     public void updateAccount(Account u) {
             Session session = this.sessionFactory.getCurrentSession();
             session.update(u);
-            logger.info("User updated successfully, User Details="+u);
+            logger.info("Account updated successfully, Account Details="+u);
     }
 
     @SuppressWarnings("unchecked")
     public List<Account> listAccounts() {
             Session session = this.sessionFactory.getCurrentSession();
-            List<Account> accountsList = session.createQuery("from User").list();
+            List<Account> accountsList = session.createQuery("from Account").list();
             for(Account u : accountsList){
-                    logger.info("User List::"+u);
+                    logger.info("Account List::"+u);
             }
             return accountsList;
     }
@@ -58,7 +58,7 @@ public class AccountDAO{
     public Account getAccountById(int id) {
             Session session = this.sessionFactory.getCurrentSession();		
             Account u = (Account) session.load(Account.class, new Integer(id));
-            logger.info("User loaded successfully, User details="+u);
+            logger.info("Account loaded successfully, Account details="+u);
             return u;
     }
     
@@ -74,13 +74,13 @@ public class AccountDAO{
     }
 
     
-    public void removeUser(int id) {
+    public void removeAccount(int id) {
             Session session = this.sessionFactory.getCurrentSession();
             Account u = (Account) session.load(Account.class, new Integer(id));
             if(null != u){
                     session.delete(u);
             }
-            logger.info("User deleted successfully, person details="+u);
+            logger.info("Account deleted successfully, person details="+u);
     }
     
 
