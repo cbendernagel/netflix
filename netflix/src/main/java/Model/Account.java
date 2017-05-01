@@ -31,5 +31,37 @@ public class Account implements Serializable{
     private AccountType acctType;
     private Customer customer;
     
+        Integer getId(){
+        return id;
+    }
+    
+    void setId(Integer id){
+        this.id = id;
+    }
+    
+    Timestamp getTimestamp(){
+        return dateOpened;
+    }
+    
+    void setTimestamp(Timestamp dateOpened){
+        this.dateOpened = dateOpened;
+    }
+    
+    AccountType getAccountType(){
+        return acctType;
+    }
+    
+    void setAccountType(AccountType acctType){
+        this.acctType = acctType;
+    }
+    
+    Customer getCustomer(){
+        return customer;
+    }
+    
+    void setCustomer(Customer customer){
+        this.customer = customer;
+    }
+    
     
 }
