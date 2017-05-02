@@ -1,3 +1,9 @@
+<%-- 
+    Document   : header
+    Created on : May 2, 2017, 3:06:30 PM
+    Author     : reggs
+--%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
@@ -14,7 +20,6 @@
         <link href="<c:url value="/resources/css/animate.css"/>" rel="stylesheet">
         <link href="<c:url value="/resources/css/colors/red.css"/>" rel="stylesheet">
         <link href="<c:url value="/resources/jquery.bxslider/jquery.bxslider.css"/>" rel="stylesheet">
-
         <link href="<c:url value="/resources/css/mycss.css"/>" rel="stylesheet">
 
     </head>
@@ -34,8 +39,8 @@
                                 <i class="fa fa-bars"></i>
                             </button>
                             <!-- End Toggle Nav Link For Mobiles -->
-                            <a href="/danfango/index.html">
-                                <img id="danfangologo" alt="" src="${contextPath}/danfango-site-logo.jpg">
+                            <a href="/netflix/index.html">
+                                <img id="netflixlogo" alt="" src="${contextPath}/danfango-site-logo.jpg">
                             </a>
                         </div>
                         <div class="navbar-collapse collapse toppadding">
@@ -55,37 +60,29 @@
                             <!-- Start Navigation List -->
                             <ul class="nav navbar-nav navbar-right">
                                 <li>
-                                    <a href="/danfango/nowplaying.html">Movies</a>
+                                    <a href="/danfango/movies">Movies</a>
                                 </li>
                                 <li>
-                                    <a href="/danfango/queue.html">Movie Queue</a>
-                                </li>
-                                <li>
-                                    <a href="/danfango/userpage.html">Settings</a>
-                                </li>
-                                <li>
-
-
                                     <c:if test="${sessionScope.user  != null}">
-                                        <a href="/danfango/signuppage.html">Netflix and Chill (Welcome ${user.firstName})</a>
+                                        <a href="/danfango/index">(Welcome ${user.firstName})</a>
                                         <ul class="dropdown">
-                                            <li><a href="/danfango/userpage.html">My Account</a>
+                                            <li><a href="/danfango/settings/{sessionScope.accout.id}">My Account</a>
                                             </li>
-                                            <li><a href="/danfango/logout.html">Sign-Out</a>
+                                            <li><a href="/danfango/logout.html">Sign Out</a>
                                             </li>
-                                        </c:if>
+                                    </c:if>
 
 
-                                        <c:if test="${sessionScope.user  == null}">
-                                            <a href="/danfango/signuppage.html">Netflix and Chill</a>
+                                    <c:if test="${sessionScope.user  == null}">
+                                            <a href="/danfango/signuppage.html">Sign Up Now!</a>
                                             <ul class="dropdown">
-                                                <li><a href="/danfango/signuppage.html">Join Now</a>
+                                                <li><a href="/danfango/signuppage">Join Now</a>
                                                 </li>
-                                                <li><a href="/danfango/signinpage.html">Sign-In</a>
+                                                <li><a href="/danfango/signinpage">Sign In</a>
                                                 </li>
-                                            </c:if>
+                                            </ul>
+                                    </c:if>
 
-                                        </ul>
                                 </li>
 
                             </ul>
