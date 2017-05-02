@@ -48,20 +48,6 @@
 
                             </form>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                             <!--                            <a href="/danfango/searchresultspage.html" class="btn-system btn-mini border-btn btn-gray"><i class="icon-heart-4"></i>Search</a>-->
 
                             <!-- End Search -->
@@ -69,19 +55,19 @@
                             <!-- Start Navigation List -->
                             <ul class="nav navbar-nav navbar-right">
                                 <li>
-                                    <a href="/danfango/nowplaying">Movies</a>
+                                    <a href="/danfango/nowplaying.html">Movies</a>
                                 </li>
                                 <li>
-                                    <a href="/danfango/ticketselectpage">Movie Times + Tickets</a>
+                                    <a href="/danfango/queue.html">Movie Queue</a>
                                 </li>
                                 <li>
-                                    <a href="/danfango/movienews">Movie News</a>
+                                    <a href="/danfango/userpage.html">Settings</a>
                                 </li>
                                 <li>
 
 
                                     <c:if test="${sessionScope.user  != null}">
-                                        <a href="/danfango/signuppage.html">DanfangoVIP (Welcome ${user.firstName})</a>
+                                        <a href="/danfango/signuppage.html">Netflix and Chill (Welcome ${user.firstName})</a>
                                         <ul class="dropdown">
                                             <li><a href="/danfango/userpage.html">My Account</a>
                                             </li>
@@ -91,7 +77,7 @@
 
 
                                         <c:if test="${sessionScope.user  == null}">
-                                            <a href="/danfango/signuppage.html">DanfangoVIP</a>
+                                            <a href="/danfango/signuppage.html">Netflix and Chill</a>
                                             <ul class="dropdown">
                                                 <li><a href="/danfango/signuppage.html">Join Now</a>
                                                 </li>
