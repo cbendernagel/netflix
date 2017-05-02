@@ -55,5 +55,10 @@ public class MovieService {
 	public void removeMovie(int id) {
 		this.movieDAO.removeMovie(id);
 	}
+        
+        @Transactional
+	public List<Movie> getMoviesByTimesRented() {
+		return this.movieDAO.listMoviesByTimesRented();
+	}
         	
 }
