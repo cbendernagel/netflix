@@ -33,57 +33,38 @@
     <bean id="movieService" class="Services.MovieService">
         <property name="movieDAO" ref="movieDAO"></property>
     </bean>
-    <bean id="crewMemberService" class="Services.CrewMemberService">
-        <property name="crewMemberDAO" ref="crewMemberDAO"></property>
+    <bean id="accountService" class="Services.AccountService">
+        <property name="accountDAO" ref="accountDAO"></property>
     </bean>
-    <bean id="userService" class="Services.UserService">
-        <property name="userDAO" ref="userDAO"></property>
+    <bean id="accountTypeService" class="Services.AccountTypeService">
+        <property name="accountTypeDAO" ref="accountTypeDAO"></property>
     </bean>
-    <bean id="theatreService" class="Services.TheatreService">
-        <property name="theatreDAO" ref="theatreDAO"></property>
+    <bean id="actorService" class="Services.ActorService">
+        <property name="actorDAO" ref="actorDAO"></property>
     </bean>
-    <bean id="showingService" class="Services.ShowingService">
-        <property name="showingDAO" ref="showingDAO"></property>
+    <bean id="appearedInService" class="Services.AppearedInService">
+        <property name="appearedInDAO" ref="appearedInDAO"></property>
     </bean>
-    <bean id="theatreRoomService" class="Services.TheatreRoomService">
-        <property name="theatreRoomDAO" ref="theatreRoomDAO"></property>
+    <bean id="customerService" class="Services.CustomerService">
+        <property name="customerDAO" ref="customerDAO"></property>
     </bean>
-    <bean id="crewMemberMovieService" class="Services.CrewMemberMovieService">
-        <property name="crewMemberMovieDAO" ref="crewMemberMovieDAO"></property>
+    <bean id="employeeService" class="Services.EmployeeService">
+        <property name="employeeDAO" ref="employeeDAO"></property>
     </bean>
-    <bean id="MovieTrailerService" class="Services.MovieTrailerService">
-        <property name="movieTrailerDAO" ref="movieTrailerDAO"></property>
+    <bean id="locationService" class="Services.LocationService">
+        <property name="locationDAO" ref="locationDAO"></property>
     </bean>
-    <bean id="userDAO" class="Dao.UserDAO">
-        <property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
+    <bean id="movieQService" class="Services.MovieQService">
+        <property name="movieQDAO" ref="movieQDAO"></property>
     </bean>
-    
-    <bean id="movieDAO" class="Dao.MovieDAO">
-        <property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
+    <bean id="orderService" class="Services.OrderService">
+        <property name="orderDAO" ref="orderDAO"></property>
     </bean>
-    
-    <bean id="crewMemberDAO" class="Dao.CrewMemberDAO">
-        <property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
+    <bean id="personService" class="Services.PersonService">
+        <property name="personDAO" ref="personDAO"></property>
     </bean>
-    
-    <bean id="crewMemberMovieDAO" class="Dao.CrewMemberMovieDAO">
-        <property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
-    </bean>
-    
-    <bean id="movieTrailerDAO" class="Dao.MovieTrailerDAO">
-        <property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
-    </bean>
-    
-    <bean id="theatreDAO" class="Dao.TheatreDAO">
-        <property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
-    </bean>
-    
-    <bean id="showingDAO" class="Dao.ShowingDAO">
-        <property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
-    </bean>
-    
-     <bean id="theatreRoomDAO" class="Dao.TheatreRoomDAO">
-        <property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
+    <bean id="rentalService" class="Services.RentalService">
+        <property name="rentalDAO" ref="rentalDAO"></property>
     </bean>
     
     <bean id="viewResolver"
@@ -108,17 +89,18 @@
         <property name="dataSource" ref="dataSource" ></property>
         <property name="annotatedClasses">
             <list>
-                    <value>Model.User</value>
+                    <value>Model.Account</value>
+                    <value>Model.AccountType</value>
+                    <value>Model.Actor</value>
+                    <value>Model.AppearedIn</value>
+                    <value>Model.Customer</value>
+                    <value>Model.Employee</value>
+                    <value>Model.Location</value>
                     <value>Model.Movie</value>
-                    <value>Model.Advertisement</value>
-                    <value>Model.Agency</value>
-                    <value>Model.CrewMember</value>
-                    <value>Model.CrewMemberMovie</value>
-                    <value>Model.Genre</value>
-                    <value>Model.Review</value>
-                    <value>Model.Theatre</value>
-                    <value>Model.TheatreRoom</value>
-                    <value>Model.MovieTrailer</value>
+                    <value>Model.MovieQ</value>
+                    <value>Model.Order</value>
+                    <value>Model.Person</value>
+                    <value>Model.Rental</value>
 
             </list>
         </property>
