@@ -2,13 +2,13 @@ package Controllers;
 
 /**
  *
- * @author joeg332
+ * @author rrego
  */
 import Model.Person;
 import Configuration.MyServletContextListener;
-import Services.AgencyService;
-import Services.AuthenticationService;
-import Services.UserService;
+import Services.AccountService;
+import Services.CustomerService;
+import Services.PersonService;
 import java.util.HashMap;
 import java.util.Map;
 import javax.servlet.ServletContext;
@@ -26,12 +26,11 @@ import org.springframework.web.servlet.ModelAndView;
 public class SignInController {
 
     @Autowired
-    AuthenticationService authenticationService;
+    CustomerService authenticationService;
     @Autowired
-
-    UserService userService;
+    PersonService personService;
     @Autowired
-    AgencyService agencyService;
+    AccountService agencyService;
 
     @RequestMapping(value = "/signinpage")
     protected ModelAndView getSignInPage() {
@@ -53,9 +52,10 @@ public class SignInController {
 //        userService.addUser(u);
         
 
-        boolean authenticated = authenticationService.authenticate(email, password);
+        boolean authenticated = true;
+                //authenticationService.authenticate(email, password);
         if (authenticated) {
-            Person user = userService.getUserByEmail(email);
+            Person user = personService.getPersonByEmail(email);
             HttpSession session = request.getSession();
             session.setAttribute("user", user);
 
@@ -67,7 +67,7 @@ public class SignInController {
         return modelandview;
     }
 
-    //this is temporary we will make this function fully and not hard code it 
+    /*//this is temporary we will make this function fully and not hard code it 
     @RequestMapping(value = "/submitAgencyCredentials")
     protected ModelAndView submitAgencyCredentials() throws Exception {
         //protected ModelAndView submitAgencyCredentials(@RequestParam("email") String email, @RequestParam("password") String password, HttpServletRequest request) throws Exception{
@@ -79,7 +79,7 @@ public class SignInController {
         modelandview = new ModelAndView("index");
         return modelandview;
 
-    }
+    }*/
 
     @RequestMapping(value = "/logout")
     protected ModelAndView logout(HttpServletRequest request) {
