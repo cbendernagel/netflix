@@ -1,7 +1,7 @@
 <%-- 
     Document   : signuppage
     Created on : Apr 3, 2017, 7:20:34 PM
-    Author     : johnlegutko
+    Author     : rrego
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -32,7 +32,7 @@
             <div class="row">
                 <div class="col-md-6 spacing border">
 
-                    <h1 class="spacing">JOIN DANFANGO<font color="EA6630"><b>VIP</b></font></h1>
+                    <h1 class="spacing">JOIN NETFLIX AND CHILL<font color="EA6630"><b>VIP</b></font></h1>
                     <h2>${UsedEmail}</h2>
                     <form role="form" id="contactForm" class="signupform spacing" data-toggle="validator" class="shake" method="POST" action="/danfango/register">
 
@@ -47,8 +47,47 @@
                         </div>
 
                         <div class="controls">
-                            
                             <input type="text" name="email" id="email" placeholder="E-mail" required data-error="Please enter your E-mail">
+                            <div class="help-block with-errors"></div>
+                        </div>
+                        
+                        <div class="controls">
+                            <input type="text" name="address" id="email" placeholder="Address" required data-error="Please enter your Address">
+                            <div class="help-block with-errors"></div>
+                        </div>
+                        
+                        <div class="controls">
+                            <input type="text" name="city" id="email" placeholder="City" required data-error="Please enter your City">
+                            <div class="help-block with-errors"></div>
+                        </div>
+                        
+                        <div class="controls">
+                            <input type="text" name="state" id="email" placeholder="State" required data-error="Please enter your State">
+                            <div class="help-block with-errors"></div>
+                        </div>
+                        
+                        <div class="controls">
+                            <input type="text" name="zip" id="email" placeholder="Zip Code" required data-error="Please enter your Zip Code">
+                            <div class="help-block with-errors"></div>
+                        </div>
+                        
+                        <div class="controls">
+                            <input type="text" name="telephone" id="email" placeholder="E-mail" required data-error="Please enter your E-mail">
+                            <div class="help-block with-errors"></div>
+                        </div>
+                        
+                        <div class="controls">
+                            <input type="text" name="ssn" id="email" placeholder="Social Security Number" required data-error="Please enter your ssn">
+                            <div class="help-block with-errors"></div>
+                        </div>
+                        
+                        <div class="controls">
+                            <input type="text" name="accountType" id="email" placeholder="Account Type" required data-error="Please enter your Account Type">
+                            <div class="help-block with-errors"></div>
+                        </div>
+                        
+                        <div class="controls">
+                            <input type="text" name="credit" id="email" placeholder="Credit Card Number" required data-error="Please enter your Credit Card Number">
                             <div class="help-block with-errors"></div>
                         </div>
 
@@ -63,19 +102,14 @@
                 </div>
             </div>
 
-
-
         </div>
-
-
-
 
         <!-- Start Footer Section -->
         <footer class="itemcenter">
             <div class="container">
                 <div class="footer-widget social-widget">
                     <h4>Anti-Graduation Squad</h4>
-                    <h6>ft. John Legutko, Joseph Giardina, Konrad Juszkiewicz, Charles Bendernagel</h6>
+                    <h6>Charles Bendernagel, Ryan Rego, Patrick Liao</h6>
 
                     <h4>Follow Us<span class="head-line"></span></h4>
                     <ul class="social-icons">
