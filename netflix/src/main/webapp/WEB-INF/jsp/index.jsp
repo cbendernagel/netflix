@@ -1,7 +1,7 @@
 <%-- 
     Document   : index
     Created on : Apr 4, 2017, 4:09:44 PM
-    Author     : johnlegutko
+    Author     : rrego
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -19,7 +19,6 @@
         <link href="<c:url value="/resources/css/animate.css"/>" rel="stylesheet">
         <link href="<c:url value="/resources/css/colors/red.css"/>" rel="stylesheet">
         <link href="<c:url value="/resources/jquery.bxslider/jquery.bxslider.css"/>" rel="stylesheet">
-
         <link href="<c:url value="/resources/css/mycss.css"/>" rel="stylesheet">
 
 
@@ -47,10 +46,10 @@
                         <div class="slider-content">
                             <div class="col-md-12 text-center">
                                 <h2 class="animated2">
-                                    <span>Welcome to <strong>Danfango</strong></span>
+                                    <span>Welcome to <strong>Netflix and Chill</strong></span>
                                 </h2>
                                 <h3 class="animated3">
-                                    <span>The ultimate movie site</span>
+                                    <span>The ultimate movie rental site</span>
                                 </h3>
                                 </p>
                             </div>
@@ -62,10 +61,10 @@
                         <div class="slider-content">
                             <div class="col-md-12 text-center">
                                 <h2 class="animated4">
-                                    <span><strong>Join</strong> our VIP Program</span>
+                                    <span><strong>Join</strong> our website</span>
                                 </h2>
                                 <h3 class="animated5">
-                                    <span>For awesome benefits and rewards</span>
+                                    <span>For access to the best movies!</span>
                                 </h3>
                                 <p class="animated6"><a href="/danfango/signuppage.html" class="slider btn btn-system btn-large">Join Now</a>
                                 </p>
@@ -128,10 +127,7 @@
                     </div>
                 </div>
             </c:forEach>
-
-
         </div><!--row-->
-
     </div>
 
 </div>
@@ -141,8 +137,8 @@
 <footer class="itemcenter">
     <div class="container">
         <div class="footer-widget social-widget">
-            <h4>Anti-Graduation Squad</h4>
-            <h6>ft. John Legutko, Joseph Giardina, Konrad Juszkiewicz, Charles Bendernagel</h6>
+            <h4>Database Squad</h4>
+            <h6>Charles Bendernagel, Ryan Rego, Patrick Liao</h6>
 
             <h4>Follow Us<span class="head-line"></span></h4>
             <ul class="social-icons">
