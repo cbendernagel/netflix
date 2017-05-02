@@ -28,7 +28,7 @@ public class HomeController{
     @RequestMapping(value = "/index")
     protected ModelAndView getHomePage(HttpServletRequest request){
         
-        List<Movie> movies = movieService.getMoviesTopRated();
+        List<Movie> movies = movieService.getMoviesByTimesRented();
             
         request.setAttribute("movies", movies);
       
