@@ -55,5 +55,10 @@ public class ActorService {
 	public void removeActor(int id) {
 		this.actorDAO.removeActor(id);
 	}
-        	
+        
+        @Transactional
+	public List<Actor> getActorsByMovie(int id) {
+		return this.actorDAO.listActorsByMovie(id);
+	}
+        
 }

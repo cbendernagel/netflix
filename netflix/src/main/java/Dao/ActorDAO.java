@@ -83,5 +83,15 @@ public class ActorDAO{
             logger.info("Actor deleted successfully, person details="+u);
     }
     
+    @SuppressWarnings("unchecked")
+    public List<Actor> listActorsByMovie(int id) {
+            Session session = this.sessionFactory.getCurrentSession();
+            List<Actor> actorsList = session.createQuery("from Actor").list();
+            for(Actor u : actorsList){
+                    logger.info("Actor List::"+u);
+            }
+            return actorsList;
+    }
+    
 
 }

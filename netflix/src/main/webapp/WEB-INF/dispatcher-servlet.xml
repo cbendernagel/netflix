@@ -96,9 +96,10 @@
 		destroy-method="close">
         <property name="driverClassName" value="com.mysql.jdbc.Driver" ></property>
 		<property name="url"
-			value="jdbc:mysql://mysql2.cs.stonybrook.edu:3306/anticyber" ></property>
-		<property name="username" value="anticyber" ></property>
-		<property name="password" value="changeit" ></property>
+			value="jdbc:mysql://localhost/netflix" ></property>
+		<property name="hibernate.connection.username" value="root"></property> 
+		<property></property>
+                <property name="hibernate.connection.password" value="root123"></property>
     </bean>
     
     <bean id="hibernate4AnnotatedSessionFactory"

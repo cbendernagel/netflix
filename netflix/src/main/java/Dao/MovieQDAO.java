@@ -83,5 +83,12 @@ public class MovieQDAO{
             logger.info("MovieQ deleted successfully, person details="+u);
     }
     
-
+    public List<MovieQ> listMoviesByRating() {
+            Session session = this.sessionFactory.getCurrentSession();
+            List<MovieQ> movieQsList = session.createQuery("from MovieQ").list();
+            for(MovieQ u : movieQsList){
+                    logger.info("MovieQ List::"+u);
+            }
+            return movieQsList;
+    }
 }
