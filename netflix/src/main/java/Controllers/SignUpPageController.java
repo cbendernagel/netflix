@@ -7,11 +7,16 @@ package Controllers;
 
 /**
  *
- * @author johnlegutko
+ * @author rrego
  */
+import Model.Account;
+import Model.Customer;
+import Model.Location;
 import Model.Person;
-import Services.AuthenticationService;
-import Services.UserService;
+import Services.AccountService;
+import Services.CustomerService;
+import Services.LocationService;
+import Services.PersonService;
 import java.util.HashMap;
 import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
@@ -28,40 +33,66 @@ import org.springframework.web.servlet.ModelAndView;
 public class SignUpPageController{
     
     @Autowired
-    UserService userService;
+    PersonService personService;
     @Autowired
-    AuthenticationService authenticationService;
+    LocationService locationService;
+    @Autowired
+    CustomerService customerService;
+    @Autowired
+    AccountService accountService;
+    
+    
     
     @RequestMapping(value = "/signuppage")
     protected ModelAndView getSignUpPage(){
     
-        ModelAndView modelandview = new ModelAndView("signuppage");        
+    ModelAndView modelandview = new ModelAndView("signuppage");        
         return modelandview;
     }
     
     @RequestMapping(value = "/register", method = RequestMethod.POST)
-    protected ModelAndView register(@RequestParam("email") String email, @RequestParam("password") String password,@RequestParam("firstname") String firstname,@RequestParam("lastname") String lastname, HttpServletRequest request){
+    protected ModelAndView register(@RequestParam("address") String address, @RequestParam("city") String city,  @RequestParam("state") String state, @RequestParam("zip") Integer zip, @RequestParam("ssn") Integer ssn, @RequestParam("credit") Integer credit, @RequestParam("accountType") String accountType, @RequestParam("telephone") Integer telephone, @RequestParam("email") String email, @RequestParam("password") String password,@RequestParam("firstname") String firstname,@RequestParam("lastname") String lastname, HttpServletRequest request){
         ModelAndView modelandview;
         
-        if (userService.getUserByEmail(email) != null){
+        if (personService.getPersonByEmail(email) != null){
             request.setAttribute("UsedEmail", "The email You have selected is already attached to an account");
             modelandview = new ModelAndView("signuppage");
             return modelandview;
         }
         else{
-            Person u = new Person(); 
-            u.setFirstName(firstname);
-            u.setLastName(lastname);
-            u.setEmail(email);
-            u.setPassword(authenticationService.hash(password));
-            userService.addUser(u);
-
+            Person p = new Person(); 
+            p.setFirstName(firstname);
+            p.setLastName(lastname);
+            p.setAddress(address);
+            p.setSsn(ssn);
+            
+            Location l = new Location();
+            l.setState(state);
+            l.setCity(city);
+            l.setZipcode(zip);
+            
+            p.setLocation(l);
+            p.setTelephone(telephone);
+            
+            Customer c = new Customer();
+            c.setEmail(email);
+            c.setCcn(credit);
+            
+            Account a = new Account();
+            //a.setTimestamp();
+            
+            
+            personService.addPerson(p);
+            locationService.addLocation(l);
+            customerService.addCustomer(c);
+            accountService.addAccount(a);
             
             HttpSession session = request.getSession();
-            session.setAttribute("user", u);   
+            session.setAttribute("person", p);   
             modelandview = new ModelAndView("index");
             return modelandview;
         }
+        
     }
     
     
