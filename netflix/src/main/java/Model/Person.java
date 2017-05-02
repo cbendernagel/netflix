@@ -27,8 +27,8 @@ public class Person implements Serializable{
     private String lastName;
     private String firstName;
     private String address;
-    private Integer zipcode;
     private Location location;
+    private Integer telephone;
 
     public Person(){}
 
@@ -64,14 +64,6 @@ public class Person implements Serializable{
         this.address = address;
     }
 
-    public Integer getZipcode() {
-        return zipcode;
-    }
-
-    public void setZipcode(Integer zipcode) {
-        this.zipcode = zipcode;
-    }
-
     public Location getLocation() {
         return location;
     }
@@ -80,5 +72,11 @@ public class Person implements Serializable{
         this.location = location;
     }
     
-       
+    public void setTelephone(Integer telephone){
+        this.telephone = telephone;
+    }
+    
+    public Integer getTelephone(){
+        return telephone;
+    }
 }
