@@ -83,5 +83,13 @@ public class MovieDAO{
             logger.info("Movie deleted successfully, person details="+u);
     }
     
-
+    @SuppressWarnings("unchecked")
+    public List<Movie> listMoviesByTimesRented() {
+            Session session = this.sessionFactory.getCurrentSession();
+            List<Movie> moviesList = session.createQuery("from Movie").list();
+            for(Movie u : moviesList){
+                    logger.info("Movie List::"+u);
+            }
+            return moviesList;
+    }
 }
