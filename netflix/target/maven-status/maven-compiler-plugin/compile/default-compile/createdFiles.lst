@@ -1,5 +1,0 @@
-Model\Order.class
-Services\MovieService.class
-Services\LocationService.class
-Model\Movie.class
-Dao\MovieDAO.class

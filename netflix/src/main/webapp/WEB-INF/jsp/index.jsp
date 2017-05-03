@@ -43,7 +43,7 @@
                             <div class="slider-content">
                                 <div class="col-md-12 text-center">
                                     <h2 class="animated2">
-                                        <span>Welcome to <strong>Netflix and Chill</strong></span>
+                                        <span>Welcome to Netflix and<strong>Chill</strong></span>
                                     </h2>
                                     <h3 class="animated3">
                                         <span>The ultimate movie rental site!</span>
@@ -63,7 +63,7 @@
                                     <h3 class="animated5">
                                         <span>For the worlds best movies anytime.</span>
                                     </h3>
-                                    <p class="animated6"><a href="/netflix/signuppage.html" class="slider btn btn-system btn-large">Sign Up</a>
+                                    <p class="animated6"><a href="/netflix/signuppage" class="slider btn btn-system btn-large">Sign Up</a>
                                     </p>
                                 </div>
                             </div>

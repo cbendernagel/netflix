@@ -60,15 +60,17 @@
                             <!-- Start Navigation List -->
                             <ul class="nav navbar-nav navbar-right">
                                 <li>
-                                    <a href="/danfango/movies">Movies</a>
+                                    <a href="/netflix/movies">Movies</a>
                                 </li>
                                 <li>
-                                    <c:if test="${sessionScope.user  != null}">
-                                        <a href="/danfango/index">(Welcome ${user.firstName})</a>
+                                    <c:if test="${sessionScope.account  != null}">
+                                        <a href="/netflix/index">(Welcome ${account.customer.person.firstName})</a>
                                         <ul class="dropdown">
-                                            <li><a href="/danfango/settings/{sessionScope.accout.id}">My Account</a>
+                                            <li><a href="/netflix/settings/{sessionScope.accout.id}">My Account</a>
                                             </li>
-                                            <li><a href="/danfango/logout.html">Sign Out</a>
+                                            <li><a href="/netflix/queue/${user.id}">Queue</a>
+                                            </li>
+                                            <li><a href="/netflix/logout.html">Sign Out</a>
                                             </li>
                                     </c:if>
 

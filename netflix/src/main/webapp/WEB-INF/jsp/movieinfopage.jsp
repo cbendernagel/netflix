@@ -29,12 +29,11 @@
         <div class="container">
 
             <c:if test="${inQueue == 1}">
-                <h1 class="spacing movietitle">${movie.title}  <i id="favorite" class="fa fa-heart fa-inverse favoriteState" aria-hidden="true"></i> </h1>
+                <input type="submit" value="Remove from Queue" class="btn-system btn-large btn-gray joinbutton spacing">
             </c:if>
-
-
+                
             <c:if test="${inQueue != 1}">
-                <h1 class="spacing movietitle">${movie.title}  <i id="favorite" class="fa fa-heart fa-inverse hi" aria-hidden="true"></i> </h1>
+                <input type="submit" value="Add to Queue" class="btn-system btn-large btn-gray joinbutton spacing">
             </c:if>
 
             <ul class="spacing nav nav-pills">
@@ -70,19 +69,18 @@
 
             <!-- Start Recent Projects Carousel -->
             <div class="recent-projects">
-                <h1 class="spacing movietitle">CAST + CREW</h1>
+                <h1 class="spacing movietitle">CAST</h1>
                 <div class="spacing projects-carousel touch-carousel">
 
-                    <c:forEach items="${crewMemberMovie}" var="crewMember" varStatus="loop">
-                        <a href="/danfango/actorinfopage/${crewMember.crewMember.id}">
+                    <c:forEach items="${actors}" var="actor" varStatus="loop">
+                        <a href="/netflix/actorinfopage/${actor.name}">
                             <div class="portfolio-item item">
                                 <div class="portfolio-border">
                                     <div class="portfolio-thumb">
                                         <div class="thumb-overlay"></div>
-                                        <img alt="" src="https://image.tmdb.org/t/p/w500/${crewMember.crewMember.poster}" />
                                     </div>
                                     <div class="portfolio-details">
-                                        <h4>${crewMember.crewMember.fullName}</h4>
+                                        <h4>${actor.rating}</h4>
                                     </div>
                                 </div>
                             </div>
@@ -174,7 +172,7 @@
     <footer class="itemcenter">
         <div class="container">
             <div class="footer-widget social-widget">
-                <h4>Anti-Graduation Squad</h4>
+                <h4>Database Squad</h4>
                 <h6>Charles Bendernagel, Ryan Rego, Patrick Liao</h6>
 
                 <h4>Follow Us<span class="head-line"></span></h4>
