@@ -1,6 +1,6 @@
 <%-- 
-    Document   : signuppage
-    Created on : May 2, 2017, 9:03:42 PM
+    Document   : settings
+    Created on : May 2, 2017, 11:50:41 PM
     Author     : reggs
 --%>
 
@@ -22,88 +22,78 @@
         <link href="<c:url value="/resources/jquery.bxslider/jquery.bxslider.css"/>" rel="stylesheet">
 
         <link href="<c:url value="/resources/css/mycss.css"/>" rel="stylesheet">
-
     </head>
     <body>
 
         <jsp:include page="header.jsp" />
 
-        <div class="spacing container joinmargin">
+        <div class="spacing container">
 
-            <div class="row">
-                <div class="col-md-6 spacing border">
+            <h2 class="spacing movietitle padding" style="text-align: center;">Hello ${account.customer.person.firstname}</h2>
 
-                    <h1 class="spacing">SIGN UP FOR NETFLIX AND CHILL<font color="EA6630"><b></b></font></h1>
-                    <form role="form" id="contactForm" class="signupform spacing" data-toggle="validator" class="shake" method="POST" action="/netflix/register">
+            <h2 class="spacing accountfont underline">Orders</h2>
+            <hr>
 
-                        <div class="controls">
-                            <input type="text" name="firstname" id="firstname" placeholder="First Name" required data-error="Please enter your First Name">
-                            <div class="help-block with-errors"></div>
-                        </div>
+            <!-- Start My Movies Carousel -->
+            <div class="recent-projects">
+                <h2 class="spacing accountfont underline">My Movies</h2>
+                <c:forEach var="order" items="${rentals}" step="4" varStatus="loop">
+                    <div class="row spacing">
 
-                        <div class="controls">
-                            <input type="text" name="lastname" id="lastname" placeholder="Last Name" required data-error="Please enter your Last Name">
-                            <div class="help-block with-errors"></div>
+                        <div class = col-md-3>
+                            <a class="" href="ratemoviepage/${order.movie.id}">
+                                <h1>${order.movie.name}</h1>
+                            </a>
                         </div>
-
-                        <div class="controls">
-                            <input type="text" name="email" id="email" placeholder="E-mail" required data-error="Please enter your E-mail">
-                            <div class="help-block with-errors"></div>
+                        <div class = col-md-3>
+                            <a class="" href="ratemoviepage/${orders[loop.index+1].movie.id}">
+                                <h1>${orders[loop.index+1].movie.name}</h1>
+                            </a>
                         </div>
-
-                        <div class="controls">
-                            <input type="text" name="address" id="address" placeholder="address" required data-error="Please enter your Address">
-                            <div class="help-block with-errors"></div>
+                        <div class = col-md-3>
+                            <a class="" href="movieinfopage/${orders[loop.index+2].movie.id}">
+                                <h1>${orders[loop.index+2].movie.name}</h1>
+                            </a>
                         </div>
-                        
-                        <div class="controls">
-                            <input type="text" name="city" id="city" placeholder="City" required data-error="Please enter your City">
-                            <div class="help-block with-errors"></div>
+                        <div class = col-md-3>
+                            <a class="" href="ratemoviepage/${orders[loop.index+3].movie.id}">
+                                <h1>${orders[loop.index+3].movie.name}</h1>
+                            </a>
                         </div>
-                        
-                        <div class="controls">
-                            <input type="text" name="zip" id="zip" placeholder="Zip Code" required data-error="Please enter your Zip">
-                            <div class="help-block with-errors"></div>
-                        </div>
-                        
-                        <div class="controls">
-                            <input type="text" name="state" id="state" placeholder="State" required data-error="Please enter your State">
-                            <div class="help-block with-errors"></div>
-                        </div>
-                        
-                        <div class="controls">
-                            <input type="text" name="ccn" id="ccn" placeholder="Credit Card Number" required data-error="Please enter your Credit Card Number">
-                            <div class="help-block with-errors"></div>
-                        </div>
-                        
-                                                <div class="controls">
-                            <input type="text" name="accounttype" id="accounttype" placeholder="Account Type" required data-error="Please enter your desired account">
-                            <div class="help-block with-errors"></div>
-                        </div>
-                        
-                        <div class="controls">
-                            <input type="text" name="telephone" id="telephone" placeholder="Phone Number" required data-error="Please enter your Phone Number">
-                            <div class="help-block with-errors"></div>
-                        </div>
-                        
-                        <div class="controls">
-                            <input type="text" name="ssn" id="ssn" placeholder="Social Security Number" required data-error="Please enter your Social Security Number">
-                            <div class="help-block with-errors"></div>
-                        </div>
-                        <input type="submit" value="Sign Up Now!" class="btn-system btn-large btn-gray joinbutton spacing">
-
-                    </form>
-
-                </div>
+                    </div>
+                </c:forEach>
             </div>
+            
+            <!-- End My Movies Carousel -->
+            <hr>
+            
+            <h2 class="spacing accountfont underline">Account Settings</h2>
+            <form role="form" id="contactForm" class="signupform spacing" data-toggle="validator" class="shake" method="POST" action="/netflix/changeemail">
+                <div class="controls">
+                    <input type="text" name="email" id="email" placeholder="E-Mail" required data-error="Please enter your new email">
+                    <div class="help-block with-errors"></div>
+                </div>
+                <input type="submit" value="Submit" class="btn-system btn-large btn-gray joinbutton spacing">
+
+            </form>
+            <form role="form" id="contactForm" class="signupform spacing" data-toggle="validator" class="shake" method="POST" action="/netflix/changepassword">
+                <div class="controls">
+                    <input type="text" name="password" id="password" placeholder="Password" required data-error="Please enter a new Password">
+                    <div class="help-block with-errors"></div>
+                </div>
+                <input type="submit" value="Submit" class="btn-system btn-large btn-gray joinbutton spacing">
+            </form>
 
         </div>
+
+
+
 
         <!-- Start Footer Section -->
         <footer class="itemcenter">
             <div class="container">
                 <div class="footer-widget social-widget">
-                    <h4>Anti-Graduation Squad</h4>
+                    <h4>Database Squad</h4>
                     <h6>Charles Bendernagel, Ryan Rego, Patrick Liao</h6>
 
                     <h4>Follow Us<span class="head-line"></span></h4>
@@ -127,7 +117,7 @@
                 <div class="copyright-section">
                     <div class="row">
                         <div class="col-md-6">
-                            <p>Copyright © 2016 Margo - Designed &amp; Developed by <a href="/danfango/http://graygrids.com">GrayGrids</a></p>
+                            <p>Copyright © 2016 Margo - Designed &amp; Developed by <a href="/netflix/http://graygrids.com">GrayGrids</a></p>
                         </div>
                         <!-- .col-md-6 -->
                         <div class="col-md-6">
@@ -188,6 +178,10 @@
     <script src="<c:url value="/resources/jquery.bxslider/jquery.bxslider.min.js" />"></script>
     <script src="<c:url value="/resources/js/myjs.js" />"></script>
     <script src="<c:url value="/resources/js/script.js" />"></script>
+
+</body>
+</html>
+
 
 </body>
 </html>
