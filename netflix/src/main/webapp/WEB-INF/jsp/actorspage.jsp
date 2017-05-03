@@ -38,7 +38,7 @@
 
                 <div class="col-md-6 spacing list-group genretable">
                     <c:forEach var="actor" items="${actors}" varStatus="loop">
-                        <a href="/netflix/movieinfopage/${actor.id}" class="list-group-item list-group-item-action">actor.name</a>
+                        <a href="/netflix/actorinfopage/${actor.id}" class="list-group-item list-group-item-action">actor.name</a>
                     </c:forEach>
                 </div>
 
@@ -73,7 +73,7 @@
                 <div class="copyright-section">
                     <div class="row">
                         <div class="col-md-6">
-                            <p>Copyright © 2016 Margo - Designed &amp; Developed by <a href="/danfango/http://graygrids.com">GrayGrids</a></p>
+                            <p>Copyright © 2016 Margo - Designed &amp; Developed by <a href="/netflix/http://graygrids.com">GrayGrids</a></p>
                         </div>
                         <!-- .col-md-6 -->
                         <div class="col-md-6">

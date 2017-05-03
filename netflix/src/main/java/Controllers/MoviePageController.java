@@ -50,7 +50,7 @@ public class MoviePageController {
     }
     
     @RequestMapping(value = "/moviespage/{genre}")
-    protected ModelAndView getMovieGenrePage(HttpServletRequest request, @PathVariable(value="genre") int genre){
+    protected ModelAndView getMovieGenrePage(HttpServletRequest request, @PathVariable(value="genre") String genre){
         
         List<Movie> movies = movieService.listMovies();
         List<String> genres = new ArrayList();
