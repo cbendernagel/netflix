@@ -28,6 +28,7 @@ public class Employee implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer empId;
     private Person person;
+    private String type;
     private Timestamp startDate;
     private Integer hourlyRate;
 
@@ -61,6 +62,14 @@ public class Employee implements Serializable {
 
     public void setHourlyRate(Integer hourlyRate) {
         this.hourlyRate = hourlyRate;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
     
     
