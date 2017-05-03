@@ -60,8 +60,10 @@
                             <!-- Start Navigation List -->
                             <ul class="nav navbar-nav navbar-right">
                                 <li>
-                                    <a href="/netflix/movies">Movies</a>
-                                    <a href="/netflix/actors">Actors</a>
+                                    <a href="/netflix/moviespage">Movies</a>
+                                </li>
+                                <li>
+                                    <a href="/netflix/actorspage">Movies</a>
                                 </li>
                                 <li>
                                     <c:if test="${sessionScope.account  != null}">
