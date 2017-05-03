@@ -103,7 +103,7 @@
         <footer class="itemcenter">
             <div class="container">
                 <div class="footer-widget social-widget">
-                    <h4>Anti-Graduation Squad</h4>
+                    <h4>Database Squad</h4>
                     <h6>Charles Bendernagel, Ryan Rego, Patrick Liao</h6>
 
                     <h4>Follow Us<span class="head-line"></span></h4>

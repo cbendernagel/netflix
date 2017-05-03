@@ -1,6 +1,6 @@
 <%-- 
-    Document   : header
-    Created on : May 2, 2017, 3:06:30 PM
+    Document   : headercustomerrep
+    Created on : May 3, 2017, 4:44:20 PM
     Author     : reggs
 --%>
 
@@ -40,7 +40,7 @@
                             </button>
                             <!-- End Toggle Nav Link For Mobiles -->
                             <a href="/netflix">
-                                <img id="netflixlogo" alt="" src="${contextPath}/netflix-site-logo.jpg">
+                                <img id="netflixlogo" alt="" src="${contextPath}/netflix-logo.jpg">
                             </a>
                         </div>
                         <div class="navbar-collapse collapse toppadding">
@@ -67,11 +67,11 @@
                                 </li>
                                 <li>
                                     <c:if test="${sessionScope.account  != null}">
-                                        <a href="/netflix/index">(Welcome ${account.customer.person.firstName})</a>
+                                        <a href="/netflix/index">(Welcome ${employee.person.firstName})</a>
                                         <ul class="dropdown">
-                                            <li><a href="/netflix/accout/{sessionScope.accout.id}">My Account</a>
+                                            <li><a href="/netflix/customers">Customers</a>
                                             </li>
-                                            <li><a href="/netflix/queue/${account.id}">Queue</a>
+                                            <li><a href="/netflix/orders/${employee.id}">Pending Orders</a>
                                             </li>
                                             <li><a href="/netflix/logout.html">Sign Out</a>
                                             </li>
