@@ -10,9 +10,9 @@ package Controllers;
  * @author reggs
  */
 import Model.Account;
-import Model.AccountType;
+import Model.Employee;
 import Services.AccountService;
-import Services.AccountTypeService;
+import Services.EmployeeService;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,7 +29,8 @@ public class SignInPageController {
     @Autowired
     AccountService accountService;
     @Autowired
-    AccountTypeService accountTypeService;
+    EmployeeService employeeService;
+
 
     @RequestMapping(value = "/signinpage")
     protected ModelAndView getSignInPage() {
@@ -48,25 +49,16 @@ public class SignInPageController {
             
             HttpSession session = request.getSession();
             session.setAttribute("account", account);
-            
-            AccountType accountType = accountTypeService.getAccountTypeById(id);
-            String type = accountType.getType();
-            switch (type) {
-                case "manager":
-                    modelandview = new ModelAndView("manager");
-                    break;
-                case "customerrep":
-                    modelandview = new ModelAndView("customerrep");
-                    break;
-                default:
-                    modelandview = new ModelAndView("index");
-                    break;
+            modelandview = new ModelAndView("index");
+    
+        }else{
+            Employee employee = employeeService.getEmployeeById(id);
+            if(employee != null){
+                modelandview = new ModelAndView("customerrep");
+            }else{
+                modelandview = new ModelAndView("signinpage");
+                modelandview.addObject("signinError", "Incorrect credentials entered. Please try again.");
             }
-
-            
-        } else {
-            modelandview = new ModelAndView("signinpage");
-            modelandview.addObject("signinError", "Incorrect credentials entered. Please try again.");
         }
         return modelandview;
     }

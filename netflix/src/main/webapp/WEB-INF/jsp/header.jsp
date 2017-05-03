@@ -61,6 +61,7 @@
                             <ul class="nav navbar-nav navbar-right">
                                 <li>
                                     <a href="/netflix/movies">Movies</a>
+                                    <a href="/netflix/actors">Actors</a>
                                 </li>
                                 <li>
                                     <c:if test="${sessionScope.account  != null}">

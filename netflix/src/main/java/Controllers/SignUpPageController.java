@@ -60,14 +60,6 @@ public class SignUpPageController{
         }
         else{
             
-            
-            /*User u = new User(); 
-            u.setFirstName(firstname);
-            u.setLastName(lastname);
-            u.setEmail(email);
-            u.setPassword(authenticationService.hash(password));
-            userService.addUser(u);*/
-            
             Account a = new Account();
             Person p = new Person();
             Customer c = new Customer();

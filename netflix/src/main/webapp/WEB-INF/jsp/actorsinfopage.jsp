@@ -1,9 +1,8 @@
 <%-- 
-    Document   : settings
-    Created on : May 2, 2017, 11:50:41 PM
+    Document   : actorsinfopage
+    Created on : May 3, 2017, 3:38:42 PM
     Author     : reggs
 --%>
-
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -29,67 +28,23 @@
 
         <div class="spacing container">
 
-            <h2 class="spacing movietitle padding" style="text-align: center;">Hello ${account.customer.person.firstname}</h2>
+            <h2 class="spacing movietitle">Actors<font color="EA6630"><b></b></font></h2>
 
-            <h2 class="spacing accountfont underline">Orders</h2>
-            <hr>
+            <ul class="spacing nav nav-pills">
+                <li class="active" role="presentation"><a href="/netflix/moviespage"><h3>All Actors</h3></a></li>
+                <li role="presentation"><a href="/netflix/actorsinfopage/${actor.id}"><h3>actor.name</h3></a></li>
+            </ul>
 
-            <!-- Start My Rentals Carousel -->
-            <div class="recent-projects">
-                <h2 class="spacing accountfont underline">My Rentals</h2>
-                <c:forEach var="order" items="${rentals}" step="4" varStatus="loop">
-                    <div class="row spacing">
+            <div class="row">
+                
+                <div class="col-md-6 spacing list-group genretable">
+                    <c:forEach var="movie" items="${moviesIn}" varStatus="loop">
+                        <a href="/netflix/movieinfopage/${movie.id}" class="list-group-item list-group-item-action">movie.name</a>
+                    </c:forEach>
+                </div>
 
-                        <div class = col-md-3>
-                            <a class="" href="ratemoviepage/${order.movie.id}">
-                                <h1>${order.movie.name}</h1>
-                            </a>
-                        </div>
-                        <div class = col-md-3>
-                            <a class="" href="ratemoviepage/${orders[loop.index+1].movie.id}">
-                                <h1>${orders[loop.index+1].movie.name}</h1>
-                            </a>
-                        </div>
-                        <div class = col-md-3>
-                            <a class="" href="movieinfopage/${orders[loop.index+2].movie.id}">
-                                <h1>${orders[loop.index+2].movie.name}</h1>
-                            </a>
-                        </div>
-                        <div class = col-md-3>
-                            <a class="" href="ratemoviepage/${orders[loop.index+3].movie.id}">
-                                <h1>${orders[loop.index+3].movie.name}</h1>
-                            </a>
-                        </div>
-                    </div>
-                </c:forEach>
             </div>
-            
-            
-            
-            <!-- End My Movies Carousel -->
-            <hr>
-            
-            <h2 class="spacing accountfont underline">Account Settings</h2>
-            <form role="form" id="contactForm" class="signupform spacing" data-toggle="validator" class="shake" method="POST" action="/netflix/changeemail">
-                <div class="controls">
-                    <input type="text" name="email" id="email" placeholder="E-Mail" required data-error="Please enter your new email">
-                    <div class="help-block with-errors"></div>
-                </div>
-                <input type="submit" value="Submit" class="btn-system btn-large btn-gray joinbutton spacing">
-
-            </form>
-            <form role="form" id="contactForm" class="signupform spacing" data-toggle="validator" class="shake" method="POST" action="/netflix/changepassword">
-                <div class="controls">
-                    <input type="text" name="password" id="password" placeholder="Password" required data-error="Please enter a new Password">
-                    <div class="help-block with-errors"></div>
-                </div>
-                <input type="submit" value="Submit" class="btn-system btn-large btn-gray joinbutton spacing">
-            </form>
-
         </div>
-
-
-
 
         <!-- Start Footer Section -->
         <footer class="itemcenter">
@@ -119,7 +74,7 @@
                 <div class="copyright-section">
                     <div class="row">
                         <div class="col-md-6">
-                            <p>Copyright © 2016 Margo - Designed &amp; Developed by <a href="/netflix/http://graygrids.com">GrayGrids</a></p>
+                            <p>Copyright © 2016 Margo - Designed &amp; Developed by <a href="/danfango/http://graygrids.com">GrayGrids</a></p>
                         </div>
                         <!-- .col-md-6 -->
                         <div class="col-md-6">
@@ -183,8 +138,3 @@
 
 </body>
 </html>
-
-
-</body>
-</html>
-
