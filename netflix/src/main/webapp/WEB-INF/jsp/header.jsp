@@ -39,7 +39,7 @@
                                 <i class="fa fa-bars"></i>
                             </button>
                             <!-- End Toggle Nav Link For Mobiles -->
-                            <a href="/netflix/index.html">
+                            <a href="/netflix">
                                 <img id="netflixlogo" alt="" src="${contextPath}/danfango-site-logo.jpg">
                             </a>
                         </div>
@@ -47,7 +47,7 @@
                             <!-- Start Search -->  
 <!--                            <input type="text" id="search" placeholder="Enter City + State, ZIP Code, or Movie" required data-error="Please enter valid info">-->
 
-                            <form role="form" id="searchForm" method="POST" action="/danfango/search">                                           
+                            <form role="form" id="searchForm" method="POST" action="/netflix/search">                                           
                                 <input type="text" name= "searchString" id="searchString" class="search" placeholder="Enter City + State, ZIP Code, or Movie">
                                 <input type="submit" value="search" class="btn-system btn-mini border-btn btn-gray">
 
@@ -76,11 +76,11 @@
 
 
                                     <c:if test="${sessionScope.user  == null}">
-                                            <a href="/danfango/signuppage.html">Sign Up Now!</a>
+                                            <a href="/netflix/signuppage.html">Sign Up Now!</a>
                                             <ul class="dropdown">
-                                                <li><a href="/danfango/signuppage">Join Now</a>
+                                                <li><a href="/netflix/signuppage">Join Now</a>
                                                 </li>
-                                                <li><a href="/danfango/signinpage">Sign In</a>
+                                                <li><a href="/netflix/signinpage">Sign In</a>
                                                 </li>
                                             </ul>
                                     </c:if>

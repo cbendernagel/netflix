@@ -108,7 +108,7 @@
 		destroy-method="close">
         <property name="driverClassName" value="com.mysql.jdbc.Driver" ></property>
 		<property name="url"
-			value="jdbc:mysql://LocalDb\LocalDBDemo" ></property>
+			value="jdbc:mysql://LocalDb\CSE305" ></property>
 		<property name="username" value="qwerty" ></property>
 		<property name="password" value="cheeseballs" ></property>
     </bean>

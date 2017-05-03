@@ -1,41 +1,42 @@
-C:\Users\reggs\Documents\College\Senior year\spring\CSE 305\Final_Project\netflix\netflix\src\main\java\Model\Employee.java
-C:\Users\reggs\Documents\College\Senior year\spring\CSE 305\Final_Project\netflix\netflix\src\main\java\Model\Person.java
-C:\Users\reggs\Documents\College\Senior year\spring\CSE 305\Final_Project\netflix\netflix\src\main\java\Model\Actor.java
-C:\Users\reggs\Documents\College\Senior year\spring\CSE 305\Final_Project\netflix\netflix\src\main\java\Services\AppearedInService.java
-C:\Users\reggs\Documents\College\Senior year\spring\CSE 305\Final_Project\netflix\netflix\src\main\java\Services\OrderService.java
-C:\Users\reggs\Documents\College\Senior year\spring\CSE 305\Final_Project\netflix\netflix\src\main\java\Controllers\MovieInfoPageController.java
-C:\Users\reggs\Documents\College\Senior year\spring\CSE 305\Final_Project\netflix\netflix\src\main\java\Model\AppearedIn.java
-C:\Users\reggs\Documents\College\Senior year\spring\CSE 305\Final_Project\netflix\netflix\src\main\java\Services\CustomerService.java
-C:\Users\reggs\Documents\College\Senior year\spring\CSE 305\Final_Project\netflix\netflix\src\main\java\Dao\EmployeeDAO.java
-C:\Users\reggs\Documents\College\Senior year\spring\CSE 305\Final_Project\netflix\netflix\src\main\java\Dao\AccountTypeDAO.java
-C:\Users\reggs\Documents\College\Senior year\spring\CSE 305\Final_Project\netflix\netflix\src\main\java\Dao\LocationDAO.java
-C:\Users\reggs\Documents\College\Senior year\spring\CSE 305\Final_Project\netflix\netflix\src\main\java\Dao\RentalDAO.java
-C:\Users\reggs\Documents\College\Senior year\spring\CSE 305\Final_Project\netflix\netflix\src\main\java\Controllers\IndexController.java
-C:\Users\reggs\Documents\College\Senior year\spring\CSE 305\Final_Project\netflix\netflix\src\main\java\Services\MovieService.java
-C:\Users\reggs\Documents\College\Senior year\spring\CSE 305\Final_Project\netflix\netflix\src\main\java\Model\AccountType.java
-C:\Users\reggs\Documents\College\Senior year\spring\CSE 305\Final_Project\netflix\netflix\src\main\java\Services\MovieQService.java
-C:\Users\reggs\Documents\College\Senior year\spring\CSE 305\Final_Project\netflix\netflix\src\main\java\Dao\ActorDAO.java
-C:\Users\reggs\Documents\College\Senior year\spring\CSE 305\Final_Project\netflix\netflix\src\main\java\Dao\OrderDAO.java
-C:\Users\reggs\Documents\College\Senior year\spring\CSE 305\Final_Project\netflix\netflix\src\main\java\Configuration\MyServletContextListener.java
-C:\Users\reggs\Documents\College\Senior year\spring\CSE 305\Final_Project\netflix\netflix\src\main\java\Dao\AccountDAO.java
-C:\Users\reggs\Documents\College\Senior year\spring\CSE 305\Final_Project\netflix\netflix\src\main\java\Dao\MovieDAO.java
-C:\Users\reggs\Documents\College\Senior year\spring\CSE 305\Final_Project\netflix\netflix\src\main\java\Services\LocationService.java
-C:\Users\reggs\Documents\College\Senior year\spring\CSE 305\Final_Project\netflix\netflix\src\main\java\Services\RentalService.java
-C:\Users\reggs\Documents\College\Senior year\spring\CSE 305\Final_Project\netflix\netflix\src\main\java\Dao\AppearedInDAO.java
-C:\Users\reggs\Documents\College\Senior year\spring\CSE 305\Final_Project\netflix\netflix\src\main\java\Model\Order.java
-C:\Users\reggs\Documents\College\Senior year\spring\CSE 305\Final_Project\netflix\netflix\src\main\java\Model\Customer.java
-C:\Users\reggs\Documents\College\Senior year\spring\CSE 305\Final_Project\netflix\netflix\src\main\java\Model\Movie.java
-C:\Users\reggs\Documents\College\Senior year\spring\CSE 305\Final_Project\netflix\netflix\src\main\java\Controllers\SignInPageController.java
-C:\Users\reggs\Documents\College\Senior year\spring\CSE 305\Final_Project\netflix\netflix\src\main\java\Services\PersonService.java
-C:\Users\reggs\Documents\College\Senior year\spring\CSE 305\Final_Project\netflix\netflix\src\main\java\Dao\MovieQDAO.java
-C:\Users\reggs\Documents\College\Senior year\spring\CSE 305\Final_Project\netflix\netflix\src\main\java\Dao\PersonDAO.java
-C:\Users\reggs\Documents\College\Senior year\spring\CSE 305\Final_Project\netflix\netflix\src\main\java\Services\AccountService.java
-C:\Users\reggs\Documents\College\Senior year\spring\CSE 305\Final_Project\netflix\netflix\src\main\java\Controllers\MovieQPageController.java
-C:\Users\reggs\Documents\College\Senior year\spring\CSE 305\Final_Project\netflix\netflix\src\main\java\Model\Account.java
-C:\Users\reggs\Documents\College\Senior year\spring\CSE 305\Final_Project\netflix\netflix\src\main\java\Model\Location.java
-C:\Users\reggs\Documents\College\Senior year\spring\CSE 305\Final_Project\netflix\netflix\src\main\java\Services\EmployeeService.java
-C:\Users\reggs\Documents\College\Senior year\spring\CSE 305\Final_Project\netflix\netflix\src\main\java\Dao\CustomerDAO.java
-C:\Users\reggs\Documents\College\Senior year\spring\CSE 305\Final_Project\netflix\netflix\src\main\java\Model\MovieQ.java
-C:\Users\reggs\Documents\College\Senior year\spring\CSE 305\Final_Project\netflix\netflix\src\main\java\Services\AccountTypeService.java
-C:\Users\reggs\Documents\College\Senior year\spring\CSE 305\Final_Project\netflix\netflix\src\main\java\Services\ActorService.java
-C:\Users\reggs\Documents\College\Senior year\spring\CSE 305\Final_Project\netflix\netflix\src\main\java\Model\Rental.java
+C:\Users\qwerty\Desktop\cse305\netflix\netflix\src\main\java\Model\MovieQ.java
+C:\Users\qwerty\Desktop\cse305\netflix\netflix\src\main\java\Services\AccountService.java
+C:\Users\qwerty\Desktop\cse305\netflix\netflix\src\main\java\Model\Rental.java
+C:\Users\qwerty\Desktop\cse305\netflix\netflix\src\main\java\Services\PersonService.java
+C:\Users\qwerty\Desktop\cse305\netflix\netflix\src\main\java\Services\RentalService.java
+C:\Users\qwerty\Desktop\cse305\netflix\netflix\src\main\java\Controllers\MovieInfoPageController.java
+C:\Users\qwerty\Desktop\cse305\netflix\netflix\src\main\java\Model\Person.java
+C:\Users\qwerty\Desktop\cse305\netflix\netflix\src\main\java\Dao\PersonDAO.java
+C:\Users\qwerty\Desktop\cse305\netflix\netflix\src\main\java\Dao\RentalDAO.java
+C:\Users\qwerty\Desktop\cse305\netflix\netflix\src\main\java\Services\AccountTypeService.java
+C:\Users\qwerty\Desktop\cse305\netflix\netflix\src\main\java\Dao\ActorDAO.java
+C:\Users\qwerty\Desktop\cse305\netflix\netflix\src\main\java\Dao\AccountTypeDAO.java
+C:\Users\qwerty\Desktop\cse305\netflix\netflix\src\main\java\Model\Employee.java
+C:\Users\qwerty\Desktop\cse305\netflix\netflix\src\main\java\Services\MovieQService.java
+C:\Users\qwerty\Desktop\cse305\netflix\netflix\src\main\java\Model\Customer.java
+C:\Users\qwerty\Desktop\cse305\netflix\netflix\src\main\java\Model\AppearedIn.java
+C:\Users\qwerty\Desktop\cse305\netflix\netflix\src\main\java\Dao\EmployeeDAO.java
+C:\Users\qwerty\Desktop\cse305\netflix\netflix\src\main\java\Services\MovieService.java
+C:\Users\qwerty\Desktop\cse305\netflix\netflix\src\main\java\Controllers\IndexController.java
+C:\Users\qwerty\Desktop\cse305\netflix\netflix\src\main\java\Dao\AppearedInDAO.java
+C:\Users\qwerty\Desktop\cse305\netflix\netflix\src\main\java\Controllers\MovieQPageController.java
+C:\Users\qwerty\Desktop\cse305\netflix\netflix\src\main\java\Dao\LocationDAO.java
+C:\Users\qwerty\Desktop\cse305\netflix\netflix\src\main\java\Model\Location.java
+C:\Users\qwerty\Desktop\cse305\netflix\netflix\src\main\java\Services\EmployeeService.java
+C:\Users\qwerty\Desktop\cse305\netflix\netflix\src\main\java\Services\LocationService.java
+C:\Users\qwerty\Desktop\cse305\netflix\netflix\src\main\java\Dao\MovieQDAO.java
+C:\Users\qwerty\Desktop\cse305\netflix\netflix\src\main\java\Dao\AccountDAO.java
+C:\Users\qwerty\Desktop\cse305\netflix\netflix\src\main\java\Dao\OrderDAO.java
+C:\Users\qwerty\Desktop\cse305\netflix\netflix\src\main\java\Model\Movie.java
+C:\Users\qwerty\Desktop\cse305\netflix\netflix\src\main\java\Services\ActorService.java
+C:\Users\qwerty\Desktop\cse305\netflix\netflix\src\main\java\Model\Order.java
+C:\Users\qwerty\Desktop\cse305\netflix\netflix\src\main\java\Services\CustomerService.java
+C:\Users\qwerty\Desktop\cse305\netflix\netflix\src\main\java\Controllers\SignUpPageController.java
+C:\Users\qwerty\Desktop\cse305\netflix\netflix\src\main\java\Dao\MovieDAO.java
+C:\Users\qwerty\Desktop\cse305\netflix\netflix\src\main\java\Configuration\MyServletContextListener.java
+C:\Users\qwerty\Desktop\cse305\netflix\netflix\src\main\java\Services\AppearedInService.java
+C:\Users\qwerty\Desktop\cse305\netflix\netflix\src\main\java\Services\OrderService.java
+C:\Users\qwerty\Desktop\cse305\netflix\netflix\src\main\java\Dao\CustomerDAO.java
+C:\Users\qwerty\Desktop\cse305\netflix\netflix\src\main\java\Model\Account.java
+C:\Users\qwerty\Desktop\cse305\netflix\netflix\src\main\java\Controllers\SignInPageController.java
+C:\Users\qwerty\Desktop\cse305\netflix\netflix\src\main\java\Model\AccountType.java
+C:\Users\qwerty\Desktop\cse305\netflix\netflix\src\main\java\Model\Actor.java
