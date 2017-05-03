@@ -26,10 +26,6 @@
     
     
 
-    <bean id="authenticationService" class="Services.AuthenticationService"/>
-    <bean id="agencyService" class="Services.AgencyService"/>
-    <bean id="searchService" class="Services.SearchService"/>
-    <bean id="locationService" class="Services.LocationService"/>
     <bean id="movieService" class="Services.MovieService">
         <property name="movieDAO" ref="movieDAO"></property>
     </bean>
@@ -66,21 +62,55 @@
     <bean id="rentalService" class="Services.RentalService">
         <property name="rentalDAO" ref="rentalDAO"></property>
     </bean>
-    
+    <bean id="accountDAO" class="Dao.AccountDAO">
+        <property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
+    </bean>
+    <bean id="accountTypeDAO" class="Dao.AccountTypeDAO">
+        <property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
+    </bean>
+    <bean id="actorDAO" class="Dao.ActorDAO">
+        <property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
+    </bean>
+    <bean id="appearedInDAO" class="Dao.AppearedInDAO">
+        <property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
+    </bean>
+    <bean id="customerDAO" class="Dao.CustomerDAO">
+        <property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
+    </bean>
+    <bean id="employeeDAO" class="Dao.EmployeeDAO">
+        <property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
+    </bean>
+    <bean id="locationDAO" class="Dao.LocationDAO">
+        <property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
+    </bean>
+    <bean id="movieDAO" class="Dao.MovieDAO">
+        <property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
+    </bean>
+    <bean id="movieQDAO" class="Dao.MovieQDAO">
+        <property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
+    </bean>
+    <bean id="orderDAO" class="Dao.OrderDAO">
+        <property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
+    </bean>
+    <bean id="personDAO" class="Dao.PersonDAO">
+        <property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
+    </bean>
+    <bean id="rentalDAO" class="Dao.RentalDAO">
+        <property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
+    </bean>
     <bean id="viewResolver"
         class="org.springframework.web.servlet.view.InternalResourceViewResolver"
         p:prefix="/WEB-INF/jsp/"
         p:suffix=".jsp" />
     
     
-    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
+     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
 		destroy-method="close">
         <property name="driverClassName" value="com.mysql.jdbc.Driver" ></property>
 		<property name="url"
-			value="jdbc:mysql://localhost/netflix" ></property>
-		<property name="hibernate.connection.username" value="root"></property> 
-		<property></property>
-                <property name="hibernate.connection.password" value="root123"></property>
+			value="jdbc:mysql://LocalDb\LocalDBDemo" ></property>
+		<property name="username" value="qwerty" ></property>
+		<property name="password" value="cheeseballs" ></property>
     </bean>
     
     <bean id="hibernate4AnnotatedSessionFactory"
@@ -111,10 +141,7 @@
                         <prop key="hibernate.show_sql">true</prop>
                 </props>
         </property>
-    <!-- Another way of indicating that we want to update the schema; Spring 
-            calls this _after_ the session factory is created, while the hbm2ddl flag 
-            above is processed by Hibernate _during_ creationo f the session factory. 
-            <property name="schemaUpdate" value="true" /> -->
+
     </bean>    
 
     
@@ -126,29 +153,6 @@
             <property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory"></property>
     </bean>
     
-<!--    <bean class="org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping"/>
-
-    
-    Most controllers will use the ControllerClassNameHandlerMapping above, but
-    for the index controller we are using ParameterizableViewController, so we must
-    define an explicit mapping for it.
-    
-    <bean id="urlMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
-        <property name="mappings">
-            <props>
-                <prop key="index.htm">indexController</prop>
-            </props>
-        </property>
-    </bean>
-
-    <bean id="viewResolver"
-          class="org.springframework.web.servlet.view.InternalResourceViewResolver"
-          p:prefix="/WEB-INF/jsp/"
-          p:suffix=".jsp" />
-
-    
-    The index controller.
-    
-    <bean name="indexController" class="org.springframework.web.servlet.mvc.ParameterizableViewController" p:viewName="index" />-->
+    <bean name="indexController" class="org.springframework.web.servlet.mvc.ParameterizableViewController" p:viewName="index" />
 
 </beans>
