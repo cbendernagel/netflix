@@ -40,7 +40,7 @@ public class SignInPageController {
     }
 
     @RequestMapping(value = "/submitCredentials", method = RequestMethod.POST)
-    protected ModelAndView submitCredentials(@RequestParam("id") Integer id, @RequestParam("password") String password, HttpServletRequest request) {
+    protected ModelAndView submitCredentials(@RequestParam("id") Integer id, HttpServletRequest request) {
         ModelAndView modelandview;
         
         Account account = accountService.getAccountById(id);
