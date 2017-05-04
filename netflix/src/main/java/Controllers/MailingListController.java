@@ -10,7 +10,9 @@ package Controllers;
  * @author reggs
  */
 
+import Model.Customer;
 import Model.Movie;
+import Services.CustomerService;
 import Services.MovieService;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -28,4 +30,17 @@ import org.springframework.web.servlet.ModelAndView;
 
 public class MailingListController {
     
+    @Autowired
+    CustomerService customerService;
+    
+    @RequestMapping(value = "/mailinglistpage")
+    protected ModelAndView getMoviePage(HttpServletRequest request){
+       
+    
+        List<Customer> customers = customerService.listCustomers();
+                
+        request.setAttribute("customers", customers);
+        ModelAndView modelandview = new ModelAndView("moviespage");        
+        return modelandview;
+    }
 }
