@@ -36,7 +36,6 @@ Dao/MovieQDAO.class
 Controllers/MovieInfoPageController.class
 Services/OrderService.class
 Model/Movie.class
-Controllers/QueueController.class
 Model/Rental.class
 Services/PersonService.class
 Controllers/CustomerController.class

@@ -57,7 +57,7 @@ public class ManagerController{
     }
         
     @RequestMapping(value = "/addMovie", method = RequestMethod.POST)
-    protected ModelAndView addMovie(@RequestParam("moviename") String moviename,@RequestParam("type") String type ,@RequestParam("rating") int rating,@RequestParam("distrFee") double distrFee, @RequestParam("numCopies")int numCopies, HttpServletRequest request){
+    protected ModelAndView addMovie(@RequestParam("moviename") String moviename,@RequestParam("type") String type ,@RequestParam("rating") int rating,@RequestParam("distrFee") float distrFee, @RequestParam("numCopies")int numCopies, HttpServletRequest request){
         ModelAndView modelandview;
 
             Movie m = new Movie();
@@ -73,14 +73,14 @@ public class ManagerController{
     }
     
     @RequestMapping(value = "/editMovie", method = RequestMethod.POST)
-    protected ModelAndView editMovie(@RequestParam("id") int id, @RequestParam("moviename") String moviename,@RequestParam("type") String type ,@RequestParam("rating") int rating,@RequestParam("distrFee") double distrFee, @RequestParam("numCopies")int numCopies, HttpServletRequest request){
+    protected ModelAndView editMovie(@RequestParam("id") int id, @RequestParam("moviename") String moviename,@RequestParam("type") String type ,@RequestParam("rating") int rating,@RequestParam("distrFee") float distrFee, @RequestParam("numCopies")int numCopies, HttpServletRequest request){
         ModelAndView modelandview;
         
         if(movieService.getMovieById(id)!= null){
             Movie m = movieService.getMovieById(id);
             m.setName(moviename);
             m.setType(type);
-            m.setDistrFee(distrFee);
+            m.setDistrFee((float)distrFee);
             m.setRating(rating);
             m.setNumCopies(numCopies);
             movieService.updateMovie(m);

@@ -37,6 +37,8 @@ public class MovieQPageController {
     MovieQService movieQService;
     @Autowired
     MovieService movieService;
+    @Autowired
+    ActorService actorService;
     
     @RequestMapping(value = "/queue/{movieId}")
     protected ModelAndView getMovieQPage(@PathVariable(value="movieId") int id, HttpServletRequest request){
@@ -46,8 +48,13 @@ public class MovieQPageController {
         MovieQ movieQ = new MovieQ();
         movieQ.setAccount(account);
         movieQ.setMovie(movie);
+        movieQService.addMovieQ(movieQ);
         
-        ModelAndView modelandview = new ModelAndView("moviespage");        
+        List<Actor> movieActors = actorService.getActorsByMovie(id);
+        request.setAttribute("movieQ", movieQ);
+        request.setAttribute("movie", movie);
+        request.setAttribute("actors", movieActors);
+        ModelAndView modelandview = new ModelAndView("movieinfopage");      
         return modelandview;
     }
     
@@ -61,7 +68,10 @@ public class MovieQPageController {
         
         movieQService.removeMovieQ(movieQ.getId());
         
-        ModelAndView modelandview = new ModelAndView("moviespage");        
+        List<Actor> movieActors = actorService.getActorsByMovie(id);
+        request.setAttribute("movie", movie);
+        request.setAttribute("actors", movieActors);
+        ModelAndView modelandview = new ModelAndView("movieinfopage");         
         return modelandview;
     }
     

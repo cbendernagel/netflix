@@ -54,11 +54,20 @@
                         </b><i class="fa fa-ticket" aria-hidden="true"></i>
                     </a>
                     <c:if test="${sessionScope.account  != null}">
+                        <c:if test="${movieQ  == null}">
                         <a href="/netflix/queue/${movie.id}" id="buyticketbutton" class="spacing btn-system btn-mini border-btn btn-gray">
                             <i class="fa fa-ticket" aria-hidden="true"></i><b>
                                 Add to Queue
                             </b><i class="fa fa-ticket" aria-hidden="true"></i>
                         </a>
+                        </c:if>
+                        <c:if test="${movieQ  != null}">
+                        <a href="/netflix/dequeue/${movie.id}" id="buyticketbutton" class="spacing btn-system btn-mini border-btn btn-gray">
+                            <i class="fa fa-ticket" aria-hidden="true"></i><b>
+                                Remove from Queue
+                            </b><i class="fa fa-ticket" aria-hidden="true"></i>
+                        </a>
+                        </c:if>
                     </c:if>
                 </div>
 
