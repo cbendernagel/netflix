@@ -59,8 +59,6 @@ public class CustomerRepController {
         Integer x = m.getNumCopies();
         rental.getMovie().setNumCopies(x);
         rental.setEmployee(employee);
-        rental.setOrder
-        rentalService.updateRental(rental);
         movieService.updateMovie(m);
                 
         ModelAndView modelandview = new ModelAndView("customerrep");        
