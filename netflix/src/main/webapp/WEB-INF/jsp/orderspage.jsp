@@ -33,7 +33,7 @@
             <ul class="spacing nav nav-pills">
                 <li role="presentation"><a href="/netflix/customerspage"><h3>Customers</h3></a></li>
                 <li  class="active"role="presentation"><a href="/netflix/orders"><h3>Orders</h3></a></li>
-                <li role="presentation"><a href="/netflix/athomedvd.html"><h3>Mailing List</h3></a></li>
+                <li role="presentation"><a href="/netflix/mailinglistpage"><h3>Mailing List</h3></a></li>
             </ul>
 
             <div class="row">

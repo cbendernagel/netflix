@@ -70,21 +70,15 @@
             <hr>
             
             <h2 class="spacing accountfont underline">Account Settings</h2>
-            <form role="form" id="contactForm" class="signupform spacing" data-toggle="validator" class="shake" method="POST" action="/netflix/changeemail">
-                <div class="controls">
-                    <input type="text" name="email" id="email" placeholder="E-Mail" required data-error="Please enter your new email">
-                    <div class="help-block with-errors"></div>
+                <div class="col-md-6 spacing list-group genretable">
+                    <div class="col-md-6 spacing list-group genretable">
+                        <a href="/netflix/account/${account.id}" class="list-group-item list-group-item-action">${account.id}</a>
+                        <a href="/netflix/account/${account.id}" class="list-group-item list-group-item-action">${account.acctType.type}</a>
+                        <a href="/netflix/account/${account.id}" class="list-group-item list-group-item-action">${account.customer.email}</a>
+                        <a href="/netflix/account/${account.id}" class="list-group-item list-group-item-action">${account.customer.ccn}</a>
+                        <a href="/netflix/account/${customer.id}" class="list-group-item list-group-item-action">${account.customer.person.telephone}</a>
+                    </div>
                 </div>
-                <input type="submit" value="Submit" class="btn-system btn-large btn-gray joinbutton spacing">
-
-            </form>
-            <form role="form" id="contactForm" class="signupform spacing" data-toggle="validator" class="shake" method="POST" action="/netflix/changepassword">
-                <div class="controls">
-                    <input type="text" name="password" id="password" placeholder="Password" required data-error="Please enter a new Password">
-                    <div class="help-block with-errors"></div>
-                </div>
-                <input type="submit" value="Submit" class="btn-system btn-large btn-gray joinbutton spacing">
-            </form>
 
         </div>
 

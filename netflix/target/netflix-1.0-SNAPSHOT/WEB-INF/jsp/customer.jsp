@@ -33,7 +33,7 @@
             
             <h2 class="spacing accountfont underline">Change Customer Settings</h2>
             ${account.customer.person.firstName}
-            <a href="">Change Account Type</a>
+            <a href="">View Account Settings</a>
             <ul class="dropdown">
                 <c:forEach var="acccountType" items="${accounttypes}" varStatus="loop">
                     <a href="/changeaccounttype/${account.id}/{accounttype}" class="list-group-item list-group-item-action">${accountType.type}</a>
@@ -63,8 +63,8 @@
         <footer class="itemcenter">
             <div class="container">
                 <div class="footer-widget social-widget">
-                    <h4>Anti-Graduation Squad</h4>
-                    <h6>ft. John Legutko, Joseph Giardina, Konrad Juszkiewicz, Charles Bendernagel</h6>
+                    <h4>Database Squad</h4>
+                    <h6>Charles Bendernagel, Ryan Rego, Patrick Liao</h6>
 
                     <h4>Follow Us<span class="head-line"></span></h4>
                     <ul class="social-icons">
@@ -87,16 +87,16 @@
                 <div class="copyright-section">
                     <div class="row">
                         <div class="col-md-6">
-                            <p>Copyright © 2016 Margo - Designed &amp; Developed by <a href="/danfango/http://graygrids.com">GrayGrids</a></p>
+                            <p>Copyright © 2016 Margo - Designed &amp; Developed by <a href="/netflix/http://graygrids.com">GrayGrids</a></p>
                         </div>
                         <!-- .col-md-6 -->
                         <div class="col-md-6">
                             <ul class="footer-nav">
-                                <li><a href="/danfango/#">Sitemap</a>
+                                <li><a href="/netflix/#">Sitemap</a>
                                 </li>
-                                <li><a href="/danfango/#">Privacy Policy</a>
+                                <li><a href="/netflix/#">Privacy Policy</a>
                                 </li>
-                                <li><a href="/danfango/#">Contact</a>
+                                <li><a href="/netflix/#">Contact</a>
                                 </li>
                             </ul>
                         </div>
@@ -115,7 +115,7 @@
     <!-- End Full Body Container -->
 
     <!-- Go To Top Link -->
-    <a href="/danfango/#" class="back-to-top"><i class="fa fa-angle-up"></i></a>
+    <a href="/netflix/#" class="back-to-top"><i class="fa fa-angle-up"></i></a>
 
     <div id="loader">
         <div class="spinner">

@@ -47,7 +47,7 @@ public class AccountController {
         }
         request.setAttribute("rentals", orders);
         
-        ModelAndView modelandview = new ModelAndView("movieinfopage");        
+        ModelAndView modelandview = new ModelAndView("account");        
         return modelandview;
     }
     

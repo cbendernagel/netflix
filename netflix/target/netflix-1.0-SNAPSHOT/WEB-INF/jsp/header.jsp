@@ -40,7 +40,7 @@
                             </button>
                             <!-- End Toggle Nav Link For Mobiles -->
                             <a href="/netflix">
-                                <img id="netflixlogo" alt="" src="${contextPath}/netflix-site-logo.jpg">
+                                <img id="netflixlogo" alt="" src="${contextPath}/chill-logo.png">
                             </a>
                         </div>
                         <div class="navbar-collapse collapse toppadding">
