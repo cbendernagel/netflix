@@ -63,7 +63,7 @@
                                     <a href="/netflix/moviespage">Movies</a>
                                 </li>
                                 <li>
-                                    <a href="/netflix/actorspage">Movies</a>
+                                    <a href="/netflix/actorspage">Actors</a>
                                 </li>
                                 <li>
                                     <c:if test="${sessionScope.account  != null}">

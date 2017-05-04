@@ -27,7 +27,7 @@ public class ActorPageController {
     
     
     @RequestMapping(value = "/actorspage")
-    protected ModelAndView getMovieGenrePage(HttpServletRequest request){
+    protected ModelAndView getActorPage(HttpServletRequest request){
         
         List<Actor> movies = actorService.listActors();
     

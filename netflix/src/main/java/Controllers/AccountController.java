@@ -32,7 +32,7 @@ public class AccountController {
     RentalService rentalService;
     
     @RequestMapping(value = "/account/{accountId}")
-    protected ModelAndView getMovieInfoPage(@PathVariable(value="accountId") int id, HttpServletRequest request){
+    protected ModelAndView getAccountPage(@PathVariable(value="accountId") int id, HttpServletRequest request){
         
         Account account = accountService.getAccountById(id);
         request.setAttribute("account", account);

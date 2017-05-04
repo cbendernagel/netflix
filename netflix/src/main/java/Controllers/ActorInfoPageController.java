@@ -29,7 +29,7 @@ public class ActorInfoPageController {
     ActorService actorService;
     
     @RequestMapping(value = "/actorinfopage/{actorId}")
-    protected ModelAndView getMovieInfoPage(@PathVariable(value="actorId") int id, HttpServletRequest request){
+    protected ModelAndView getActorInfoPage(@PathVariable(value="actorId") int id, HttpServletRequest request){
         
         List<Movie> movies = movieService.listMovies();
         Actor actor = actorService.getActorById(id);

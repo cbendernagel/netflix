@@ -26,7 +26,7 @@ public class QueueController {
     MovieQService movieQService;
     
     @RequestMapping(value = "/queue/{id}")
-    protected ModelAndView getMovieGenrePage(HttpServletRequest request, @PathVariable(value="id") int id){
+    protected ModelAndView getMovieQPage(HttpServletRequest request, @PathVariable(value="id") int id){
         
         List<MovieQ> movieQs = movieQService.listMovieQs();
         for(MovieQ movieQ : movieQs){

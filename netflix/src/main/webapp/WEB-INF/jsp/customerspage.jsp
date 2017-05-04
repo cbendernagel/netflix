@@ -28,41 +28,22 @@
 
         <div class="spacing container">
 
-            <h2 class="spacing movietitle">MOVIE <font color="EA6630"><b>GENRES</b></font></h2>
+            <h2 class="spacing movietitle">CUSTOMERS<font color="EA6630"><b></b></font></h2>
 
             <ul class="spacing nav nav-pills">
-                <li role="presentation"><a href="/danfango/nowplaying.html"><h3>Now Playing</h3></a></li>
-                <li role="presentation"><a href="/danfango/comingsoon.html"><h3>Coming Soon</h3></a></li>
-                <li class="active" role="presentation"><a href="/danfango/moviegenres.html"><h3>Movie Genres</h3></a></li>
-                <li role="presentation"><a href="/danfango/athomedvd.html"><h3>At Home</h3></a></li>
+                <li class="active" role="presentation"><a href="/netflix/customerspage"><h3>Customers</h3></a></li>
+                <li  role="presentation"><a href="/netflix/orders"><h3>Orders</h3></a></li>
+                <li role="presentation"><a href="/netflix/athomedvd.html"><h3>Mailing List</h3></a></li>
             </ul>
 
             <div class="row">
 
                 <div class="col-md-6 spacing list-group genretable">
-                    <a href="/danfango/nowplaying.html" class="list-group-item list-group-item-action">Action</a>
-                    <a href="/danfango/nowplaying.html" class="list-group-item list-group-item-action">Drama</a>
-                    <a href="/danfango/nowplaying.html" class="list-group-item list-group-item-action">Comedy</a>
-                    <a href="/danfango/nowplaying.html" class="list-group-item list-group-item-action">Kids</a>
-                    <a href="/danfango/nowplaying.html" class="list-group-item list-group-item-action">Horror</a>
-                    <a href="/danfango/nowplaying.html" class="list-group-item list-group-item-action">Romance</a>
-                    <a href="/danfango/nowplaying.html" class="list-group-item list-group-item-action">Sci-Fi</a>
-                    <a href="/danfango/nowplaying.html" class="list-group-item list-group-item-action">Animated</a>
-                    <a href="/danfango/nowplaying.html" class="list-group-item list-group-item-action">Documentaries</a>
-                    <a href="/danfango/nowplaying.html" class="list-group-item list-group-item-action">3D</a>
-                </div>
-
-                <div class="col-md-6 spacing list-group genretable">
-                    <a href="/danfango/nowplaying.html" class="list-group-item list-group-item-action">Suspense</a>
-                    <a href="/danfango/nowplaying.html" class="list-group-item list-group-item-action">Indie</a>
-                    <a href="/danfango/nowplaying.html" class="list-group-item list-group-item-action">Foreign</a>
-                    <a href="/danfango/nowplaying.html" class="list-group-item list-group-item-action">Special Events</a>
-                    <a href="/danfango/nowplaying.html" class="list-group-item list-group-item-action">Western</a>
-                    <a href="/danfango/nowplaying.html" class="list-group-item list-group-item-action">Historical</a>
-                    <a href="/danfango/nowplaying.html" class="list-group-item list-group-item-action">War</a>
-                    <a href="/danfango/nowplaying.html" class="list-group-item list-group-item-action">Dance</a>
-                    <a href="/danfango/nowplaying.html" class="list-group-item list-group-item-action">Film,TV,& Radio</a>
-                    <a href="/danfango/nowplaying.html" class="list-group-item list-group-item-action">Music/Performing Arts</a>
+                    <div class="col-md-6 spacing list-group genretable">
+                        <c:forEach var="customer" items="${customers}" varStatus="loop">
+                            <a href="/netflix/customers/${customer.id}" class="list-group-item list-group-item-action">${customer.peron.firstName}</a>
+                        </c:forEach>
+                    </div>
                 </div>
 
             </div>
