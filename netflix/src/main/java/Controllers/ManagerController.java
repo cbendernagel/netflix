@@ -15,6 +15,8 @@ import Model.Customer;
 import Model.Location;
 import Model.Person;
 import Model.Movie;
+import Model.Employee;
+import Services.EmployeeService;
 import Services.MovieService;
 import Services.AccountService;
 import Services.CustomerService;
@@ -47,6 +49,8 @@ public class ManagerController{
     CustomerService customerService;
     @Autowired
     MovieService movieService;
+    @Autowired
+    EmployeeService employeeService;
     
     
     @RequestMapping(value = "/manager")
@@ -106,6 +110,85 @@ public class ManagerController{
             modelandview = new ModelAndView("manager");
             return modelandview;
         }
+        modelandview = new ModelAndView("manager");
+        return modelandview;
+    }
+    
+    @RequestMapping(value = "/addEmployee", method = RequestMethod.POST)
+    protected ModelAndView addEmployee(@RequestParam("ssn") String ssn,@RequestParam("address") String address ,@RequestParam("firstName") String firstName,@RequestParam("lastName") String lastName, @RequestParam("zipcode") int zipcode, @RequestParam("city")String city,@RequestParam("state")String state,@RequestParam("telephone")String telephone,@RequestParam("hourlyRate")int hourlyRate, @RequestParam("type")String type, HttpServletRequest request){
+        ModelAndView modelandview;
+            
+           Location l;
+           if(locationService.getLocationById(zipcode) != null)
+            {
+               l = locationService.getLocationById(zipcode);
+            }
+            else
+            {
+                l = new Location();
+                l.setZipcode(zipcode);
+                l.setCity(city);
+                l.setState(state);
+                locationService.addLocation(l);
+            }
+       
+           Person p = new Person();
+           p.setSsn(ssn);
+           p.setFirstName(firstName);
+           p.setLastName(lastName);
+           p.setAddress(address);
+           p.setLocation(l);
+           p.setTelephone(telephone);
+           personService.addPerson(p);
+           
+           Employee e = new Employee();
+           
+           e.setPerson(p);
+           e.setHourlyRate(hourlyRate);
+           e.setType(type);
+           employeeService.addEmployee(e);
+           
+        modelandview = new ModelAndView("manager");
+        return modelandview;
+    }
+    
+     @RequestMapping(value = "/editEmployee", method = RequestMethod.POST)
+    protected ModelAndView editEmployee(@RequestParam("empid")int empid,@RequestParam("ssn") String ssn,@RequestParam("address") String address ,@RequestParam("firstName") String firstName,@RequestParam("lastName") String lastName, @RequestParam("zipcode") int zipcode, @RequestParam("city")String city,@RequestParam("state")String state,@RequestParam("telephone")String telephone,@RequestParam("hourlyRate")int hourlyRate, @RequestParam("startDate") Timestamp startDate,@RequestParam("type")String type, HttpServletRequest request){
+        ModelAndView modelandview;
+            
+            Employee e = employeeService.getEmployeeById(empid);
+           Person p = e.getPerson();
+           Location l = p.getLocation();
+           
+        
+           if(l != null)
+            {
+               l = locationService.getLocationById(zipcode);
+            }
+            else
+            {
+                l = new Location();
+                l.setZipcode(zipcode);
+                l.setCity(city);
+                l.setState(state);
+                locationService.updateLocation(l);
+            }
+        
+           p.setSsn(ssn);
+           p.setFirstName(firstName);
+           p.setLastName(lastName);
+           p.setAddress(address);
+           p.setLocation(l);
+           p.setTelephone(telephone);
+           personService.updatePerson(p);
+           
+           e.setPerson(p);
+           e.setStartDate(startDate);
+           e.setHourlyRate(hourlyRate);
+           e.setType(type);
+           employeeService.updateEmployee(e);
+           
+           
         modelandview = new ModelAndView("manager");
         return modelandview;
     }

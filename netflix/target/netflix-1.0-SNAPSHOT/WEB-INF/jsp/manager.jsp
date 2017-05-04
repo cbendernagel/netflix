@@ -77,7 +77,7 @@
                 <div class="col-md-6 spacing border">
 
                     <h1 class="spacing">EDIT A MOVIE<font color="EA6630"><b></b></font></h1>
-                    <form role="form" id="contactForm" class="signupform spacing" data-toggle="validator" class="shake" method="POST" action="/netflix/register">
+                    <form role="form" id="contactForm" class="signupform spacing" data-toggle="validator" class="shake" method="POST" action="/netflix/editMovie">
                         
                         <div class="controls">
                             <input type="text" name="id" id="id" placeholder="Movie Id" required data-error="Please enter the Movie Id">
@@ -123,7 +123,7 @@
                 <div class="col-md-6 spacing border">
 
                     <h1 class="spacing">DELETE A MOVIE<font color="EA6630"><b></b></font></h1>
-                    <form role="form" id="contactForm" class="signupform spacing" data-toggle="validator" class="shake" method="POST" action="/netflix/register">
+                    <form role="form" id="contactForm" class="signupform spacing" data-toggle="validator" class="shake" method="POST" action="/netflix/deleteMovie">
 
                         <div class="controls">
                             <input type="text" name="id" id="id" placeholder="Movie id" required data-error="Please enter the Movie Id">
@@ -144,18 +144,59 @@
                 <div class="col-md-6 spacing border">
 
                     <h1 class="spacing">ADD AN EMPLOYEE<font color="EA6630"><b></b></font></h1>
-                    <form role="form" id="contactForm" class="signupform spacing" data-toggle="validator" class="shake" method="POST" action="/netflix/register">
-
+                    <form role="form" id="contactForm" class="signupform spacing" data-toggle="validator" class="shake" method="POST" action="/netflix/addEmployee">
+                        
+                        <div class="controls">
+                            <input type="text" name="ssn" id="ssn" placeholder="Social Security Number" required data-error="Please enter the SSN">
+                            <div class="help-block with-errors"></div>
+                        </div>
+                        
+                        <div class="controls">
+                            <input type="text" name="address" id="address" placeholder="Address">
+                            <div class="help-block with-errors"></div>
+                        </div>
+                        
+                        <div class="controls">
+                            <input type="text" name="firstName" id="firstName" placeholder="First Name" required data-error="Please enter the First Name">
+                            <div class="help-block with-errors"></div>
+                        </div>
+                        
+                        <div class="controls">
+                            <input type="text" name="lastName" id="lastName" placeholder="Last Name" required data-error="Please enter the Last Name">
+                            <div class="help-block with-errors"></div>
+                        </div>
+                        
+                        <div class="controls">
+                            <input type="text" name="zipcode" id="zipcode" placeholder="Zip Code" required data-error="Please enter the Zip Code">
+                            <div class="help-block with-errors"></div>
+                        </div>
+                        
+                        <div class="controls">
+                            <input type="text" name="city" id="city" placeholder="City">
+                            <div class="help-block with-errors"></div>
+                        </div>
+                        
+                        <div class="controls">
+                            <input type="text" name="state" id="state" placeholder="State">
+                            <div class="help-block with-errors"></div>
+                        </div>
+                        
+                        <div class="controls">
+                            <input type="text" name="telephone" id="telephone" placeholder="Telephone">
+                            <div class="help-block with-errors"></div>
+                        </div>
                         
                         <div class="controls">
                             <input type="text" name="hourlyRate" id="hourlyRate" placeholder="Hourly Rate">
                             <div class="help-block with-errors"></div>
                         </div>
                         
+                        
                         <div class="controls">
-                            <input type="text" name="startDate" id="startDate" placeholder="start Date">
+                            <input type="text" name="type" id="type" placeholder="Employee Position" required data-error="Please enter the Position">
                             <div class="help-block with-errors"></div>
                         </div>
+                        
                         <input type="submit" name="button" value="Add Employee" class="btn-system btn-large btn-gray joinbutton spacing">
 
                     </form>
@@ -165,6 +206,82 @@
 
         </div>
         <!-- Edit an Employee -->
+        <div class="spacing container joinmargin">
+
+            <div class="row">
+                <div class="col-md-6 spacing border">
+
+                    <h1 class="spacing">EDIT EMPLOYEE[FILL EVERYTHING OUT]<font color="EA6630"><b></b></font></h1>
+                    <form role="form" id="contactForm" class="signupform spacing" data-toggle="validator" class="shake" method="POST" action="/netflix/editEmployee">
+                        
+                        <div class="controls">
+                            <input type="text" name="empid" id="empid" placeholder="Employee Id" required data-error="Please enter the Employee Id">
+                            <div class="help-block with-errors"></div>
+                        </div>
+                        
+                        <div class="controls">
+                            <input type="text" name="ssn" id="ssn" placeholder="Social Security Number" required data-error="Please enter the SSN">
+                            <div class="help-block with-errors"></div>
+                        </div>
+                        
+                        <div class="controls">
+                            <input type="text" name="address" id="address" placeholder="Address">
+                            <div class="help-block with-errors"></div>
+                        </div>
+                        
+                        <div class="controls">
+                            <input type="text" name="firstName" id="firstName" placeholder="First Name" required data-error="Please enter the First Name">
+                            <div class="help-block with-errors"></div>
+                        </div>
+                        
+                        <div class="controls">
+                            <input type="text" name="lastName" id="lastName" placeholder="Last Name" required data-error="Please enter the Last Name">
+                            <div class="help-block with-errors"></div>
+                        </div>
+                        
+                        <div class="controls">
+                            <input type="text" name="zipcode" id="zipcode" placeholder="Zip Code" required data-error="Please enter the Zip Code">
+                            <div class="help-block with-errors"></div>
+                        </div>
+                        
+                        <div class="controls">
+                            <input type="text" name="city" id="city" placeholder="City">
+                            <div class="help-block with-errors"></div>
+                        </div>
+                        
+                        <div class="controls">
+                            <input type="text" name="state" id="state" placeholder="State">
+                            <div class="help-block with-errors"></div>
+                        </div>
+                        
+                        <div class="controls">
+                            <input type="text" name="telephone" id="telephone" placeholder="Telephone">
+                            <div class="help-block with-errors"></div>
+                        </div>
+                        
+                        <div class="controls">
+                            <input type="text" name="hourlyRate" id="hourlyRate" placeholder="Hourly Rate">
+                            <div class="help-block with-errors"></div>
+                        </div>
+                        
+                        <div class="controls">
+                            <input type="text" name="startDate" id="startDate" placeholder="Start Date">
+                            <div class="help-block with-errors"></div>
+                        </div>
+                        
+                        <div class="controls">
+                            <input type="text" name="type" id="type" placeholder="Employee Position" required data-error="Please enter the Position">
+                            <div class="help-block with-errors"></div>
+                        </div>
+                        
+                        <input type="submit" name="button" value="Edit Employee" class="btn-system btn-large btn-gray joinbutton spacing">
+
+                    </form>
+
+                </div>
+            </div>
+
+        </div>
         <!-- Delete an Employee -->
         
         <!-- Start Footer Section -->
