@@ -5,6 +5,7 @@
  */
 package Dao;
 
+import Model.Actor;
 import java.util.List;
 
 import org.hibernate.Session;
@@ -14,6 +15,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
 
 import Model.AppearedIn;
+import Model.Movie;
 import org.hibernate.criterion.Restrictions;
 /**
  *
@@ -62,15 +64,24 @@ public class AppearedInDAO{
             return u;
     }
     
-    public AppearedIn getAppearedInByEmail(String email) {
+    public List<AppearedIn> getAppearedInByActor(Actor actor) {
             Session session = this.sessionFactory.getCurrentSession();	
-            List appearedIns = session.createCriteria(AppearedIn.class).add(Restrictions.eq("email", email)).list();
+            List appearedIns = session.createCriteria(AppearedIn.class).add(Restrictions.eq("actor", actor)).list();
             if (appearedIns.isEmpty()){
                 return null;
             }
-            AppearedIn u = (AppearedIn) appearedIns.get(0);
-            logger.info("AppearedIn loaded successfully, AppearedIn details="+u);
-            return u;
+            logger.info("AppearedIn loaded successfully, AppearedIn details="+appearedIns);
+            return appearedIns;
+    }
+    
+    public List<AppearedIn> getAppearedInByMovie(Movie movie) {
+            Session session = this.sessionFactory.getCurrentSession();	
+            List appearedIns = session.createCriteria(AppearedIn.class).add(Restrictions.eq("movie", movie)).list();
+            if (appearedIns.isEmpty()){
+                return null;
+            }
+            logger.info("AppearedIn loaded successfully, AppearedIn details="+appearedIns);
+            return appearedIns;
     }
 
     

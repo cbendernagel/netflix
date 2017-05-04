@@ -38,7 +38,7 @@
 
                 <div class="col-md-6 spacing list-group genretable">
                     <c:forEach var="actor" items="${actors}" varStatus="loop">
-                        <a href="/netflix/actorinfopage/${actor.id}" class="list-group-item list-group-item-action">actor.name</a>
+                        <a href="/netflix/actorinfopage/${actor.id}" class="list-group-item list-group-item-action">${actor.name}</a>
                     </c:forEach>
                 </div>
 

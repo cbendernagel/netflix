@@ -11,7 +11,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import Dao.AppearedInDAO;
+import Model.Actor;
 import Model.AppearedIn;
+import Model.Movie;
 
 @Service
 public class AppearedInService {
@@ -47,8 +49,13 @@ public class AppearedInService {
 	}
         
         @Transactional
-	public AppearedIn getAppearedInByEmail(String email) {
-		return this.appearedInDAO.getAppearedInByEmail(email);
+	public List<AppearedIn> getAppearedInByActor(Actor actor) {
+		return this.appearedInDAO.getAppearedInByActor(actor);
+	}
+	
+        @Transactional
+	public List<AppearedIn> getAppearedInByMovie(Movie movie) {
+		return this.appearedInDAO.getAppearedInByMovie(movie);
 	}
 	
 	@Transactional

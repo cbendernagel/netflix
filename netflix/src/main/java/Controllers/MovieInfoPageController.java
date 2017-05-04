@@ -8,8 +8,10 @@ package Controllers;
 import Model.Account;
 import Model.Actor;
 import Model.Movie;
+import Model.Rental;
 import Services.ActorService;
 import Services.MovieService;
+import Services.RentalService;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -26,6 +28,8 @@ public class MovieInfoPageController {
     MovieService movieService;
     @Autowired
     ActorService actorService;
+    @Autowired
+    RentalService rentalService;
     
     @RequestMapping(value = "/movieinfopage/{movieId}")
     protected ModelAndView getMovieInfoPage(@PathVariable(value="movieId") int id, HttpServletRequest request){
@@ -33,7 +37,6 @@ public class MovieInfoPageController {
         HttpSession session = request.getSession();  
         Movie movie = movieService.getMovieById(id);
         request.setAttribute("movie", movie);
-       
         Account account = (Account) session.getAttribute("account");
         
         List<Actor> movieActors = actorService.getActorsByMovie(id);
@@ -43,12 +46,19 @@ public class MovieInfoPageController {
         return modelandview;
     }
     
-    @RequestMapping(value = "/movieinfopage/{movieId}", method = RequestMethod.POST)
-    protected ModelAndView changeQueueState(HttpServletRequest request , HttpServletRequest response){
-        ModelAndView modelandview;
+    @RequestMapping(value = "/rental/{movieId}")
+    protected ModelAndView requestRental(@PathVariable(value="movieId") int id, HttpServletRequest request){
+        Rental rental = new Rental();
+        HttpSession session = request.getSession();  
+        Movie movie = movieService.getMovieById(id);
+        request.setAttribute("movie", movie);
+        Account account = (Account) session.getAttribute("account");
+        rental.setAccount(account);
+        rental.setMovie(movie);
         
-        request.setAttribute("inQueue", 1);
-        modelandview = new ModelAndView("movieinfopage");
+        rentalService.addRental(rental);
+        
+        ModelAndView modelandview = new ModelAndView("movieinfopage");        
         return modelandview;
     }
 }

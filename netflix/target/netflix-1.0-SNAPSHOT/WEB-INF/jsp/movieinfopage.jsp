@@ -48,12 +48,22 @@
                         <p><b>Genre:</b> ${movie.type}</p>
                         <p><b>Number of Copies:</b> ${movie.numCopies}</p>
                     </div>
-                    <a href="/danfango/ticketselectpage.html" id="buyticketbutton" class="spacing btn-system btn-mini border-btn btn-gray">
-                        <i class="fa fa-ticket" aria-hidden="true"></i><b>
-                            Rent
-                        </b><i class="fa fa-ticket" aria-hidden="true"></i>
-                    </a>
                     <c:if test="${sessionScope.account  != null}">
+                        <c:if test="${movie.numCopies >= 1}">
+                        <a href="/netflix/rent/${movie.id}" id="buyticketbutton" class="spacing btn-system btn-mini border-btn btn-gray">
+                            <i class="fa fa-ticket" aria-hidden="true"></i><b>
+                                Request Rental
+                            </b><i class="fa fa-ticket" aria-hidden="true"></i>
+                        </a>
+                        </c:if>
+                        <c:if test="${movie.numCopies < 1}">
+                        <a href="/netflix/movieinfopage/${movie.id}" id="buyticketbutton" class="spacing btn-system btn-mini border-btn btn-gray">
+                            <i class="fa fa-ticket" aria-hidden="true"></i><b>
+                                No copies available
+                            </b><i class="fa fa-ticket" aria-hidden="true"></i>
+                        </a>
+                        </c:if>
+                    
                         <c:if test="${movieQ  == null}">
                         <a href="/netflix/queue/${movie.id}" id="buyticketbutton" class="spacing btn-system btn-mini border-btn btn-gray">
                             <i class="fa fa-ticket" aria-hidden="true"></i><b>

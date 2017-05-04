@@ -11,9 +11,12 @@ package Controllers;
  */
 
 import Model.Actor;
+import Model.AppearedIn;
 import Model.Movie;
 import Services.ActorService;
+import Services.AppearedInService;
 import Services.MovieService;
+import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,12 +32,17 @@ public class ActorInfoPageController {
     MovieService movieService;
     @Autowired
     ActorService actorService;
+    @Autowired
+    AppearedInService appearedInService;
     
     @RequestMapping(value = "/actorinfopage/{actorId}")
     protected ModelAndView getActorInfoPage(@PathVariable(value="actorId") int id, HttpServletRequest request){
         
-        List<Movie> movies = movieService.listMovies();
         Actor actor = actorService.getActorById(id);
+        ArrayList<Movie> movies = new ArrayList<Movie>();
+        
+        List<AppearedIn> appearedIn = appearedInService.getAppearedInByActor(actor);
+        
         for(Movie movie : movies){
             List<Actor> movieActors = actorService.getActorsByMovie(id);
             if(movieActors.contains(actor) != true){
