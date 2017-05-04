@@ -24,6 +24,7 @@
     </head>
     <body>
 
+        <jsp:include page="headercustomerrep.jsp" />
 
         <div class="spacing container">
 
@@ -35,7 +36,7 @@
                     <c:forEach var="rental" items="${rental}" varStatus="loop">
                         <c:if test="${rental.employee.empId == null}">
                         <a class="list-group-item list-group-item-action">${rental.movie.name} Requested by Account ID: ${rental.account.id} </a>
-                        <input type="submit" name="approve" href= "/netflix/moviespage/${rental}" value="Approve Rental" class="btn-system btn-medium btn-blue joinbutton spacing">
+                        <input type="submit" name="approve" href= "/netflix/moviespage/${rental.id}" value="Approve Rental" class="btn-system btn-medium btn-blue joinbutton spacing">
                         </c:if>
                     </c:forEach>
                 </div>

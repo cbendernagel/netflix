@@ -46,7 +46,7 @@ public class MovieInfoPageController {
         return modelandview;
     }
     
-    @RequestMapping(value = "/rental/{movieId}")
+    @RequestMapping(value = "/rent/{movieId}")
     protected ModelAndView requestRental(@PathVariable(value="movieId") int id, HttpServletRequest request){
         Rental rental = new Rental();
         HttpSession session = request.getSession();  

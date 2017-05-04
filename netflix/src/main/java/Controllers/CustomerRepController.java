@@ -49,9 +49,10 @@ public class CustomerRepController {
         return modelandview;
     }
     
-    @RequestMapping(value = "/moviespage/{rental}")
-    protected ModelAndView getRentalPage(HttpServletRequest request, @PathVariable(value="rental") Rental rental){
+    @RequestMapping(value = "/moviespage/{rental.id}")
+    protected ModelAndView getRentalPage(HttpServletRequest request, @PathVariable(value="rental") int rentalId){
         
+        Rental rental = rentalService.getRentalById(rentalId);
         HttpSession session = request.getSession();
         Employee employee = (Employee) session.getAttribute("employee");
         Movie m = rental.getMovie();
