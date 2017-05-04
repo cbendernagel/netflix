@@ -42,7 +42,7 @@ public class LocationService {
 
 	
 	@Transactional
-	public Location getLocationById(Integer id) {
+	public Location getLocationById(int id) {
 		return this.locationDAO.getLocationById(id);
 	}
 	

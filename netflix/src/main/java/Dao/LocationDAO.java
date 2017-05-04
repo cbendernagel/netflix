@@ -55,11 +55,16 @@ public class LocationDAO{
     }
 
     
-    public Location getLocationById(Integer id) {
+    public Location getLocationById(int id) {
             Session session = this.sessionFactory.getCurrentSession();		
-            Location u = (Location) session.load(Location.class, id);
-            logger.info("Location loaded successfully, Location details="+u);
-            return u;
+            try{
+                Location u = (Location) session.load(Location.class, new Integer(id));
+                logger.info("Location loaded successfully, Location details="+u);
+                return u;
+            }catch(Exception e)
+            {
+                return null;
+            }
     }
     
     public void removeLocation(int id) {

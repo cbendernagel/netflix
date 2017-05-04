@@ -5,6 +5,7 @@
  */
 package Dao;
 
+import Model.Account;
 import java.util.List;
 
 import org.hibernate.Session;
@@ -14,6 +15,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
 
 import Model.Customer;
+import Model.Person;
 import org.hibernate.criterion.Restrictions;
 /**
  *
@@ -71,6 +73,18 @@ public class CustomerDAO{
             Customer u = (Customer) customers.get(0);
             logger.info("Customer loaded successfully, Customer details="+u);
             return u;
+    }
+    
+    public Customer getCustomerByPerson(Person person)
+    {
+        Session session = this.sessionFactory.getCurrentSession();	
+        List customers = session.createCriteria(Customer.class).add(Restrictions.eq("person", person)).list();
+        if (customers.isEmpty()){
+            return null;
+        }
+        Customer u = (Customer) customers.get(0);
+        logger.info("Account loaded successfully, Account details="+u);
+        return u;
     }
 
     

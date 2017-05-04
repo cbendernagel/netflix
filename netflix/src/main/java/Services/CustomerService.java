@@ -12,6 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import Dao.CustomerDAO;
 import Model.Customer;
+import Model.Person;
 
 @Service
 public class CustomerService {
@@ -49,6 +50,11 @@ public class CustomerService {
         @Transactional
 	public Customer getCustomerByEmail(String email) {
 		return this.customerDAO.getCustomerByEmail(email);
+	}
+        
+        @Transactional
+	public Customer getCustomerByPerson(Person person) {
+		return this.customerDAO.getCustomerByPerson(person);
 	}
 	
 	@Transactional

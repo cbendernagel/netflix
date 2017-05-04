@@ -12,6 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import Dao.EmployeeDAO;
 import Model.Employee;
+import Model.Person;
 
 @Service
 public class EmployeeService {
@@ -49,6 +50,11 @@ public class EmployeeService {
         @Transactional
 	public Employee getEmployeeByEmail(String email) {
 		return this.employeeDAO.getEmployeeByEmail(email);
+	}
+        
+        @Transactional
+	public Employee getEmployeeByPerson(Person person) {
+		return this.employeeDAO.getEmployeeByPerson(person);
 	}
 	
 	@Transactional

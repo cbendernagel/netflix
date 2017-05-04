@@ -42,8 +42,8 @@ public class PersonService {
 
 	
 	@Transactional
-	public Person getPersonById(int id) {
-		return this.personDAO.getPersonById(id);
+	public Person getPersonById(String ssn) {
+		return this.personDAO.getPersonById(ssn);
 	}
         
         @Transactional

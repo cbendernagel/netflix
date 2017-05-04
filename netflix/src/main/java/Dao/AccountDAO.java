@@ -14,6 +14,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
 
 import Model.Account;
+import Model.Customer;
+import Model.Person;
 import org.hibernate.criterion.Restrictions;
 /**
  *
@@ -71,6 +73,18 @@ public class AccountDAO{
             Account u = (Account) accounts.get(0);
             logger.info("Account loaded successfully, Account details="+u);
             return u;
+    }
+    
+    public Account getAccountByCustomer(Customer customer)
+    {
+        Session session = this.sessionFactory.getCurrentSession();	
+        List accounts = session.createCriteria(Account.class).add(Restrictions.eq("customer", customer)).list();
+        if (accounts.isEmpty()){
+            return null;
+        }
+        Account u = (Account) accounts.get(0);
+        logger.info("Account loaded successfully, Account details="+u);
+        return u;
     }
 
     

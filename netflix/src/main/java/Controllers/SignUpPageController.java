@@ -15,6 +15,7 @@ import Model.Customer;
 import Model.Location;
 import Model.Person;
 import Services.AccountService;
+import Services.AccountTypeService;
 import Services.CustomerService;
 import Services.LocationService;
 import Services.PersonService;
@@ -36,7 +37,7 @@ public class SignUpPageController{
     @Autowired
     AccountService accountService;
     @Autowired
-    AccountService accountTypeService;
+    AccountTypeService accountTypeService;
     @Autowired
     PersonService personService;
     @Autowired
@@ -63,30 +64,25 @@ public class SignUpPageController{
         }
         else{
             Location l;
-            if((l = locationService.getLocationById(new Integer(zip))) != null);
+            if(locationService.getLocationById(Integer.parseInt(zip)) != null)
+            {
+               l = locationService.getLocationById(Integer.parseInt(zip));
+            }
             else
             {
                 l = new Location();
+                l.setZipcode(Integer.parseInt(zip));
                 l.setCity(city);
                 l.setState(state);
-                l.setZipcode(new Integer(zip));
                 locationService.addLocation(l);
             }
             Account a = new Account();
             Person p = new Person();
             Customer c = new Customer();
             AccountType accountType = new AccountType();
+            accountType.setType(accounttype);
+            accountTypeService.addAccountType(accountType);
             
-            a.setCustomer(c);
-            a.setAccountType(accountType);
-            List<Account> accounts = accountService.listAccounts();
-            int aId = accounts.size() + 1;
-            a.setId(aId);
-            Calendar calendar = Calendar.getInstance();
-            java.util.Date now = calendar.getTime();
-            Timestamp currentTimestamp = new java.sql.Timestamp(now.getTime());
-            a.setTimestamp(currentTimestamp);
-    
             p.setSsn(ssn);
             p.setLastName(lastname);
             p.setFirstName(firstname);
@@ -97,6 +93,13 @@ public class SignUpPageController{
             c.setCcn(ccn);
             c.setEmail(email);
             c.setPerson(p);
+            
+            a.setCustomer(c);
+            a.setAccountType(accountType);
+            Calendar calendar = Calendar.getInstance();
+            java.util.Date now = calendar.getTime();
+            Timestamp currentTimestamp = new java.sql.Timestamp(now.getTime());
+            a.setTimestamp(currentTimestamp);
             
             personService.addPerson(p);
             customerService.addCustomer(c);

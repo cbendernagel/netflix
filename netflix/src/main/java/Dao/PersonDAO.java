@@ -55,9 +55,9 @@ public class PersonDAO{
     }
 
     
-    public Person getPersonById(int id) {
+    public Person getPersonById(String ssn) {
             Session session = this.sessionFactory.getCurrentSession();		
-            Person u = (Person) session.load(Person.class, new Integer(id));
+            Person u = (Person) session.load(Person.class, ssn);
             logger.info("Person loaded successfully, Person details="+u);
             return u;
     }

@@ -10,9 +10,13 @@ package Controllers;
  * @author reggs
  */
 import Model.Account;
+import Model.Customer;
 import Model.Employee;
+import Model.Person;
 import Services.AccountService;
+import Services.CustomerService;
 import Services.EmployeeService;
+import Services.PersonService;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,6 +34,10 @@ public class SignInPageController {
     AccountService accountService;
     @Autowired
     EmployeeService employeeService;
+    @Autowired
+    PersonService personService;
+    @Autowired
+    CustomerService customerService;
 
 
     @RequestMapping(value = "/signinpage")
@@ -40,29 +48,41 @@ public class SignInPageController {
     }
 
     @RequestMapping(value = "/submitCredentials", method = RequestMethod.POST)
-    protected ModelAndView submitCredentials(@RequestParam("id") Integer id, HttpServletRequest request) {
+    protected ModelAndView submitCredentials(@RequestParam("ssn") String ssn, HttpServletRequest request) {
         ModelAndView modelandview;
+        HttpSession session = request.getSession();
         
-        Account account = accountService.getAccountById(id);
-
-        if (account != null) {
-            
-            HttpSession session = request.getSession();
-            session.setAttribute("account", account);
-            modelandview = new ModelAndView("index");
-    
-        }else{
-            Employee employee = employeeService.getEmployeeById(id);
-            if(employee != null){
+        Person person;
+        
+        if((person = personService.getPersonById(ssn)) != null)
+        {
+            if(customerService.getCustomerByPerson(person) != null)
+            {
+                Customer customer = customerService.getCustomerByPerson(person);
+                Account account = accountService.getAccountByCustomer(customer);
+                session.setAttribute("account", account);
+                modelandview = new ModelAndView("index");
+            }
+            else if(employeeService.getEmployeeByPerson(person) != null)
+            {
+                Employee employee = employeeService.getEmployeeByPerson(person);
+                session.setAttribute("employee", employee);
                 if(employee.getType().equals("Manager")){
                     modelandview = new ModelAndView("manager");
                 }else{
                     modelandview = new ModelAndView("customerrep");
                 }
-            }else{
+            }
+            else
+            {
                 modelandview = new ModelAndView("signinpage");
                 modelandview.addObject("signinError", "Incorrect credentials entered. Please try again.");
             }
+        }
+        else
+        {
+            modelandview = new ModelAndView("signinpage");
+            modelandview.addObject("signinError", "Incorrect credentials entered. Please try again.");
         }
         return modelandview;
     }
