@@ -34,8 +34,9 @@
                 <div class="col-md-6 spacing border">
 
                     <h1 class="spacing">ADD A MOVIE<font color="EA6630"><b></b></font></h1>
-                    <form role="form" id="contactForm" class="signupform spacing" data-toggle="validator" class="shake" method="POST" action="/netflix/register">
-
+                    <form role="form" id="contactForm" class="signupform spacing" data-toggle="validator" class="shake" method="POST" action="/netflix/addMovie">
+                        
+                        
                         <div class="controls">
                             <input type="text" name="moviename" id="moviename" placeholder="Movie Name" required data-error="Please enter the Movie Name">
                             <div class="help-block with-errors"></div>
@@ -48,6 +49,16 @@
                         
                         <div class="controls">
                             <input type="text" name="rating" id="rating" placeholder="Movie Rating">
+                            <div class="help-block with-errors"></div>
+                        </div>
+                        
+                        <div class="controls">
+                            <input type="text" name="distrFee" id="distrFee" placeholder="Distribution Fees">
+                            <div class="help-block with-errors"></div>
+                        </div>
+                        
+                        <div class="controls">
+                            <input type="text" name="numCopies" id="numCopies" placeholder="Number of Copies">
                             <div class="help-block with-errors"></div>
                         </div>
                         <input type="submit" name="button" value="Add Movie" class="btn-system btn-large btn-gray joinbutton spacing">
@@ -132,7 +143,7 @@
             <div class="row">
                 <div class="col-md-6 spacing border">
 
-                    <h1 class="spacing">ADD A MOVIE<font color="EA6630"><b></b></font></h1>
+                    <h1 class="spacing">ADD AN EMPLOYEE<font color="EA6630"><b></b></font></h1>
                     <form role="form" id="contactForm" class="signupform spacing" data-toggle="validator" class="shake" method="POST" action="/netflix/register">
 
                         
