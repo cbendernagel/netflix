@@ -33,22 +33,20 @@
             
             <h2 class="spacing accountfont underline">Change Customer Settings</h2>
             ${account.customer.person.firstName}
-            <form role="form" id="contactForm" class="signupform spacing" data-toggle="validator" class="shake" method="POST" action="/netflix/changeaccounttype">
-                <div class="controls">
-                    <input type="text" name="accountType" id="email" placeholder="${account.accountType.type}" required data-error="Please enter your Account Type">
-                    <div class="help-block with-errors"></div>
-                </div>
-                <input type="submit" value="Submit" class="btn-system btn-large btn-gray joinbutton spacing">
-
-            </form>
-            <form role="form" id="contactForm" class="signupform spacing" data-toggle="validator" class="shake" method="POST" action="/netflix/changeccn">
+            <a href="">Change Account Type</a>
+            <ul class="dropdown">
+                <c:forEach var="acccountType" items="${accounttypes}" varStatus="loop">
+                    <a href="/changeaccounttype/${account.id}/{accounttype}" class="list-group-item list-group-item-action">${accountType.type}</a>
+                </c:forEach>
+            </ul>
+            <form role="form" id="contactForm" class="signupform spacing" data-toggle="validator" class="shake" method="POST" action="/netflix/changeccn/${accout.id}">
                 <div class="controls">
                     <input type="text" name="ccn" id="password" placeholder="${account.customer.ccn}" required data-error="Please enter a new Credit Card Number">
                     <div class="help-block with-errors"></div>
                 </div>
                 <input type="submit" value="Submit" class="btn-system btn-large btn-gray joinbutton spacing">
             </form>
-            <form role="form" id="contactForm" class="signupform spacing" data-toggle="validator" class="shake" method="POST" action="/netflix/changetelephone">
+            <form role="form" id="contactForm" class="signupform spacing" data-toggle="validator" class="shake" method="POST" action="/netflix/changetelephone/${accout.id}">
                 <div class="controls">
                     <input type="text" name="telephone" id="telephone" placeholder="${account.customer.person.telephone}" required data-error="Please enter a new Phone Number">
                     <div class="help-block with-errors"></div>
