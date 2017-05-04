@@ -18,6 +18,9 @@ import Services.AccountService;
 import Services.CustomerService;
 import Services.LocationService;
 import Services.PersonService;
+import java.sql.Timestamp;
+import java.util.Calendar;
+import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -68,7 +71,13 @@ public class SignUpPageController{
             
             a.setCustomer(c);
             a.setAccountType(accountType);
-            a.setId(ssn);
+            List<Account> accounts = accountService.listAccounts();
+            int aId = accounts.size() + 1;
+            a.setId(aId);
+            Calendar calendar = Calendar.getInstance();
+            java.util.Date now = calendar.getTime();
+            Timestamp currentTimestamp = new java.sql.Timestamp(now.getTime());
+            a.setTimestamp(currentTimestamp);
     
             p.setLastName(lastname);
             p.setFirstName(firstname);

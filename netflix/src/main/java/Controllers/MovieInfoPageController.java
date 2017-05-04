@@ -36,7 +36,7 @@ public class MovieInfoPageController {
         return modelandview;
     }
     
-    @RequestMapping(value = "/movieinfopage", method = RequestMethod.POST)
+    @RequestMapping(value = "/movieinfopage/{movieId}", method = RequestMethod.POST)
     protected ModelAndView changeQueueState(HttpServletRequest request , HttpServletRequest response){
         ModelAndView modelandview;
         

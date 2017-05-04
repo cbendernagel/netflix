@@ -54,7 +54,11 @@ public class SignInPageController {
         }else{
             Employee employee = employeeService.getEmployeeById(id);
             if(employee != null){
-                modelandview = new ModelAndView("customerrep");
+                if(employee.getType().equals("Manager")){
+                    modelandview = new ModelAndView("manager");
+                }else{
+                    modelandview = new ModelAndView("customerrep");
+                }
             }else{
                 modelandview = new ModelAndView("signinpage");
                 modelandview.addObject("signinError", "Incorrect credentials entered. Please try again.");
