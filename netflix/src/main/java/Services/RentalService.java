@@ -47,8 +47,8 @@ public class RentalService {
 	}
         
         @Transactional
-	public Rental getRentalByEmail(String email) {
-		return this.rentalDAO.getRentalByEmail(email);
+	public List<Rental> getPendingRentals() {
+		return this.rentalDAO.getPendingRentals();
 	}
 	
 	@Transactional

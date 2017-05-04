@@ -62,15 +62,14 @@ public class RentalDAO{
             return u;
     }
     
-    public Rental getRentalByEmail(String email) {
+    public List<Rental> getPendingRentals() {
             Session session = this.sessionFactory.getCurrentSession();	
-            List rentals = session.createCriteria(Rental.class).add(Restrictions.eq("email", email)).list();
+            List<Rental> rentals = session.createCriteria(Rental.class).add(Restrictions.eq("order", null)).add(Restrictions.eq("employee", null)).list();
             if (rentals.isEmpty()){
                 return null;
             }
-            Rental u = (Rental) rentals.get(0);
-            logger.info("Rental loaded successfully, Rental details="+u);
-            return u;
+            logger.info("Rental loaded successfully, Rental details="+rentals);
+            return rentals;
     }
 
     
