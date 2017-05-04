@@ -203,6 +203,70 @@
 
                 </div>
             </div>
+            
+                                <h1 class="spacing">ADD A CUSTOMER<font color="EA6630"><b></b></font></h1>
+<form role="form" id="contactForm" class="signupform spacing" data-toggle="validator" class="shake" method="POST" action="/netflix/register">
+
+                        <div class="controls">
+                            <input type="text" name="firstname" id="firstname" placeholder="First Name" required data-error="Please enter your First Name">
+                            <div class="help-block with-errors"></div>
+                        </div>
+
+                        <div class="controls">
+                            <input type="text" name="lastname" id="lastname" placeholder="Last Name" required data-error="Please enter your Last Name">
+                            <div class="help-block with-errors"></div>
+                        </div>
+
+                        <div class="controls">
+                            <input type="text" name="email" id="email" placeholder="E-mail" required data-error="Please enter your E-mail">
+                            <div class="help-block with-errors"></div>
+                        </div>
+
+                        <div class="controls">
+                            <input type="text" name="address" id="address" placeholder="address" required data-error="Please enter your Address">
+                            <div class="help-block with-errors"></div>
+                        </div>
+                        
+                        <div class="controls">
+                            <input type="text" name="city" id="city" placeholder="City" required data-error="Please enter your City">
+                            <div class="help-block with-errors"></div>
+                        </div>
+                        
+                        <div class="controls">
+                            <input type="text" name="zip" id="zip" placeholder="Zip Code" required data-error="Please enter your Zip">
+                            <div class="help-block with-errors"></div>
+                        </div>
+                        
+                        <div class="controls">
+                            <input type="text" name="state" id="state" placeholder="State" required data-error="Please enter your State">
+                            <div class="help-block with-errors"></div>
+                        </div>
+                        
+                        <div class="controls">
+                            <input type="text" name="ccn" id="ccn" placeholder="Credit Card Number" required data-error="Please enter your Credit Card Number">
+                            <div class="help-block with-errors"></div>
+                        </div>
+                        
+                                                <div class="controls">
+                            <input type="text" name="accounttype" id="accounttype" placeholder="Account Type" required data-error="Please enter your desired account">
+                            <div class="help-block with-errors"></div>
+                        </div>
+                        
+                        <div class="controls">
+                            <input type="text" name="telephone" id="telephone" placeholder="Phone Number" required data-error="Please enter your Phone Number">
+                            <div class="help-block with-errors"></div>
+                        </div>
+                        
+                        <div class="controls">
+                            <input type="text" name="ssn" id="ssn" placeholder="Social Security Number" required data-error="Please enter your Social Security Number">
+                            <div class="help-block with-errors"></div>
+                        </div>
+                        <input type="submit" value="Sign Up Now!" class="btn-system btn-large btn-gray joinbutton spacing">
+
+                    </form>
+
+                </div>
+            </div>
 
         </div>
         <!-- Edit an Employee -->

@@ -19,11 +19,16 @@
 movies to your queue and rent them by clicked <br>
 the buttons that are clearly labeled. A customer rep <br>
 must approve your order.<br>
--You can view your account, orders and queue in the account page.<br></p>
+-You can view your account, orders and queue in the account page.<br>
+-The Movie page will allow you to filter movies by genre and <br>
+when you click on a movie you can view its info<br>
+        This is where you would add to your queue or rent.</p>
 
 <p>Customer Rep:<br>
 -log in with your id<br>
--Approve orders by clicking the button</p>
+-Approve orders by clicking the button<br>
+-Have access to customer account information which they can <br>
+edit on the customer page.</p>
 
 <p>Manager:<br>
     -log in with id<br>
