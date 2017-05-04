@@ -30,7 +30,7 @@ public class Movie implements Serializable{
     private String name;
     private String type;
     private Integer rating;
-    private double distrFee;
+    private float distrFee;
     private Integer numCopies;
 
     public Integer getId() {
@@ -65,11 +65,11 @@ public class Movie implements Serializable{
         this.rating = rating;
     }
 
-    public double getDistrFee() {
+    public float getDistrFee() {
         return distrFee;
     }
 
-    public void setDistrFee(double distrFee) {
+    public void setDistrFee(float distrFee) {
         this.distrFee = distrFee;
     }
 

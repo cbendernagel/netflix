@@ -37,30 +37,29 @@
             </c:if>
 
             <ul class="spacing nav nav-pills">
-                <li class="active" role="presentation"><a href="/danfango/movieinfopage/${movie.id}"><h3>Overview</h3></a></li>
+                <li class="active" role="presentation"><a href="/netflix/movieinfopage/${movie.id}"><h3>Overview</h3></a></li>
                 <li role="presentation"><a href="/netflix/genres/${movie.type}"><h3>Movies of the Same Genre</h3></a></li>
             </ul>
 
             <div class="row">
                 <div class="col-sm-3 leftpadding">
                     <div class="movieInfo">
-                        <p><b>Release Date:</b> ${movie.releaseDate}</p>
                         <p><b>Rating:</b> ${movie.rating}</p>
                         <p><b>Genre:</b> ${movie.type}</p>
                         <p><b>Number of Copies:</b> ${movie.numCopies}</p>
                     </div>
                     <a href="/danfango/ticketselectpage.html" id="buyticketbutton" class="spacing btn-system btn-mini border-btn btn-gray">
                         <i class="fa fa-ticket" aria-hidden="true"></i><b>
-                            BUY MOVIE TICKETS
+                            Rent
                         </b><i class="fa fa-ticket" aria-hidden="true"></i>
                     </a>
-                </div>
-
-
-                <div class="col-md-4">
-                    <div class="synopsis">
-                        <p class="synopsisFont">${movie.synopsis}</p> 
-                    </div>
+                    <c:if test="${sessionScope.account  != null}">
+                        <a href="/netflix/queue/${movie.id}" id="buyticketbutton" class="spacing btn-system btn-mini border-btn btn-gray">
+                            <i class="fa fa-ticket" aria-hidden="true"></i><b>
+                                Add to Queue
+                            </b><i class="fa fa-ticket" aria-hidden="true"></i>
+                        </a>
+                    </c:if>
                 </div>
 
             </div>
@@ -87,78 +86,6 @@
                         </a>
                     </c:forEach>
 
-                </div>
-            </div>
-            <!-- End Recent Projects Carousel -->
-
-            <h1 class="spacing movietitle">MOVIE NEWS</h1>
-            <hr>
-
-            <h1 class="spacing movietitle">MOVIE REVIEWS</h1>
-
-            <a href="" data-toggle="modal" data-target="#myModalMessage" id="leavereviewbutton"  class="spacing btn-system btn-mini border-btn btn-gray"><b>LEAVE A REVIEW</b></a>
-            <br>
-
-            <div class="modal fade" id="myModalMessage" role="dialog">
-                <div class="modal-dialog">
-                    <!-- Modal content-->
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            <h4 class="modal-title">Tell Us What You Think!</h4>
-                            <fieldset class="rating">
-                                <input type="radio" id="star5" name="rating" value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
-                                <input type="radio" id="star4half" name="rating" value="4 and a half" /><label class="half" for="star4half" title="Pretty good - 4.5 stars"></label>
-                                <input type="radio" id="star4" name="rating" value="4" /><label class = "full" for="star4" title="Pretty good - 4 stars"></label>
-                                <input type="radio" id="star3half" name="rating" value="3 and a half" /><label class="half" for="star3half" title="Meh - 3.5 stars"></label>
-                                <input type="radio" id="star3" name="rating" value="3" /><label class = "full" for="star3" title="Meh - 3 stars"></label>
-                                <input type="radio" id="star2half" name="rating" value="2 and a half" /><label class="half" for="star2half" title="Kinda bad - 2.5 stars"></label>
-                                <input type="radio" id="star2" name="rating" value="2" /><label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
-                                <input type="radio" id="star1half" name="rating" value="1 and a half" /><label class="half" for="star1half" title="Meh - 1.5 stars"></label>
-                                <input type="radio" id="star1" name="rating" value="1" /><label class = "full" for="star1" title="Sucks big time - 1 star"></label>
-                                <input type="radio" id="starhalf" name="rating" value="half" /><label class="half" for="starhalf" title="Sucks big time - 0.5 stars"></label>
-                            </fieldset>
-                        </div>
-
-                        <div class="modal-body">
-                            <form action = "/" id="myReview">
-
-                                <input placeholder="Subject" type="text" class="form-control" id="reviewSubject">
-
-                                <textarea rows="10" cols="50" placeholder="Type Review Here" type="text" class="form-control" id="reviewContent"></textarea>                 
-
-                            </form>
-                        </div>
-
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Submit</button>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-
-            <div class="row toppadding">
-                <div class="col-md-4">
-                    <div class="review"></div>
-                </div>
-                <div class="col-md-4">
-                    <div class="review"></div>
-                </div>
-                <div class="col-md-4">
-                    <div class="review"></div>
-                </div>
-            </div>
-
-            <div class="row toppadding bottompadding">
-                <div class="col-md-4">
-                    <div class="review"></div>
-                </div>
-                <div class="col-md-4">
-                    <div class="review"></div>
-                </div>
-                <div class="col-md-4">
-                    <div class="review"></div>
                 </div>
             </div>
 

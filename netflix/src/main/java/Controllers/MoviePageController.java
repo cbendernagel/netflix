@@ -26,6 +26,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+@Controller
 public class MoviePageController {
     
     @Autowired
@@ -45,7 +46,7 @@ public class MoviePageController {
         request.setAttribute("genres", genres);
         request.setAttribute("movies", movies);
                 
-        ModelAndView modelandview = new ModelAndView("moviegenres");        
+        ModelAndView modelandview = new ModelAndView("moviespage");        
         return modelandview;
     }
     
@@ -63,7 +64,7 @@ public class MoviePageController {
         request.setAttribute("genres", genres);
         request.setAttribute("movies", movies);
                 
-        ModelAndView modelandview = new ModelAndView("moviegenres");        
+        ModelAndView modelandview = new ModelAndView("moviespage");        
         return modelandview;
     }
     

@@ -5,6 +5,8 @@
  */
 package Dao;
 
+import Model.Account;
+import Model.Movie;
 import java.util.List;
 
 import org.hibernate.Session;
@@ -65,6 +67,17 @@ public class MovieQDAO{
     public MovieQ getMovieQByEmail(String email) {
             Session session = this.sessionFactory.getCurrentSession();	
             List movieQs = session.createCriteria(MovieQ.class).add(Restrictions.eq("email", email)).list();
+            if (movieQs.isEmpty()){
+                return null;
+            }
+            MovieQ u = (MovieQ) movieQs.get(0);
+            logger.info("MovieQ loaded successfully, MovieQ details="+u);
+            return u;
+    }
+    
+    public MovieQ getMovieQByAccMov(Account acc, Movie mov) {
+            Session session = this.sessionFactory.getCurrentSession();	
+            List movieQs = session.createCriteria(MovieQ.class).add(Restrictions.eq("account", acc)).add(Restrictions.eq("movie", mov)).list();
             if (movieQs.isEmpty()){
                 return null;
             }

@@ -22,6 +22,7 @@ Model/Employee.class
 Configuration/MyServletContextListener.class
 Dao/AccountTypeDAO.class
 Dao/LocationDAO.class
+Controllers/ManagerController.class
 Controllers/ActorInfoPageController.class
 Model/Order.class
 Controllers/ActorPageController.class

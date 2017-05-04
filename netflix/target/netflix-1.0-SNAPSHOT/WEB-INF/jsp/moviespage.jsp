@@ -31,19 +31,18 @@
             <h2 class="spacing movietitle">MOVIES<font color="EA6630"><b></b></font></h2>
 
             <ul class="spacing nav nav-pills">
-                <c:if test="${currentgenre == null}">
-                    <li class="active" role="presentation"><a href="/netflix/moviespage"><h3>All Genres</h3></a></li>
-                </c:if>
                 <c:if test="${currentgenre != null}">
                     <li role="presentation"><a href="/netflix/moviespage"><h3>All Genres</h3></a></li>
                 </c:if>
-                <li class="active" role="presentation"><a href="/netflix/moviespage"><h3>All Genres</h3></a></li>
+                <c:if test="${currentgenre == null}">
+                    <li class="active" role="presentation"><a href="/netflix/moviespage"><h3>All Genres</h3></a></li>
+                </c:if>
                 <c:forEach var="genre" items="${genres}" varStatus="loop">
                     <c:if test="${currentgenre == genre}">
-                        <li class="active" role="presentation"><a href="/netflix/moviespage/${genre}"><h3>All Genres</h3></a></li>
+                        <li class="active" role="presentation"><a href="/netflix/moviespage/${genre}"><h3>${genre}</h3></a></li>
                     </c:if>
                     <c:if test="${currentgenre != genre}">
-                        <li role="presentation"><a href="/netflix/moviespage/${genre}"><h3>All Genres</h3></a></li>
+                        <li role="presentation"><a href="/netflix/moviespage/${genre}"><h3>${genre}</h3></a></li>
                     </c:if>
                 </c:forEach>
             </ul>
@@ -52,7 +51,7 @@
 
                 <div class="col-md-6 spacing list-group genretable">
                     <c:forEach var="movie" items="${movies}" varStatus="loop">
-                        <a href="/netflix/movieinfopage/${movie.id}" class="list-group-item list-group-item-action">movie.name</a>
+                        <a href="/netflix/movieinfopage/${movie.id}" class="list-group-item list-group-item-action">${movie.name}</a>
                     </c:forEach>
                 </div>
 

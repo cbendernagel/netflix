@@ -11,6 +11,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import Dao.MovieQDAO;
+import Model.Account;
+import Model.Movie;
 import Model.MovieQ;
 
 @Service
@@ -49,6 +51,11 @@ public class MovieQService {
         @Transactional
 	public MovieQ getMovieQByEmail(String email) {
 		return this.movieQDAO.getMovieQByEmail(email);
+	}
+        
+        @Transactional
+	public MovieQ getMovieQByAccMov(Account acc, Movie mov) {
+		return this.movieQDAO.getMovieQByAccMov(acc, mov);
 	}
 	
 	@Transactional
