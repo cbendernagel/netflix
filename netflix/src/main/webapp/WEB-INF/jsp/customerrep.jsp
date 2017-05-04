@@ -36,7 +36,9 @@
                     <c:forEach var="rental" items="${rental}" varStatus="loop">
                         <c:if test="${rental.employee.empId == null}">
                         <a class="list-group-item list-group-item-action">${rental.movie.name} Requested by Account ID: ${rental.account.id} </a>
-                        <input type="submit" name="approve" href= "/netflix/moviespage/${rental.id}" value="Approve Rental" class="btn-system btn-medium btn-blue joinbutton spacing">
+                        <a href= "/netflix/customerrep/${rental.id}" class="btn-system btn-medium btn-blue joinbutton spacing">
+                                Request Rental
+                        </a>
                         </c:if>
                     </c:forEach>
                 </div>

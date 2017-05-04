@@ -69,12 +69,12 @@
                                     <a href="/netflix/mailinglistpage">Mailing List</a>
                                 </li>
                                 <li>
-                                    <c:if test="${sessionScope.account  != null}">
+                                    <c:if test="${sessionScope.employee  != null}">
                                         <a href="/netflix/index">(Welcome ${employee.person.firstName})</a>
                                         <ul class="dropdown">
                                             <li><a href="/netflix/customers">Customers</a>
                                             </li>
-                                            <li><a href="/netflix/orders/${employee.id}">Pending Orders</a>
+                                            <li><a href="/netflix/customerrep">Pending Orders</a>
                                             </li>
                                             <li><a href="/netflix/logout.html">Sign Out</a>
                                             </li>

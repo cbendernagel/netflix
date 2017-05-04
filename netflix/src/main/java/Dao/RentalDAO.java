@@ -64,7 +64,7 @@ public class RentalDAO{
     
     public List<Rental> getPendingRentals() {
             Session session = this.sessionFactory.getCurrentSession();	
-            List<Rental> rentals = session.createCriteria(Rental.class).add(Restrictions.eq("order", null)).add(Restrictions.eq("employee", null)).list();
+            List<Rental> rentals = session.createCriteria(Rental.class).add(Restrictions.eq("employee", null)).list();
             if (rentals.isEmpty()){
                 return null;
             }

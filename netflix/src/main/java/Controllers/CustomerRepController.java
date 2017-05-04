@@ -49,8 +49,8 @@ public class CustomerRepController {
         return modelandview;
     }
     
-    @RequestMapping(value = "/moviespage/{rental.id}")
-    protected ModelAndView getRentalPage(HttpServletRequest request, @PathVariable(value="rental") int rentalId){
+    @RequestMapping(value = "/customerrep/{rental.id}")
+    protected ModelAndView getRentalPage(HttpServletRequest request, @PathVariable(value="rental.id") int rentalId){
         
         Rental rental = rentalService.getRentalById(rentalId);
         HttpSession session = request.getSession();
@@ -59,8 +59,11 @@ public class CustomerRepController {
         Integer x = m.getNumCopies();
         rental.getMovie().setNumCopies(x);
         rental.setEmployee(employee);
+        rental.setOrder
+        rentalService.updateRental(rental);
+        movieService.updateMovie(m);
                 
-        ModelAndView modelandview = new ModelAndView("moviespage");        
+        ModelAndView modelandview = new ModelAndView("customerrep");        
         return modelandview;
     }
     

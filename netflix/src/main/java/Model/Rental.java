@@ -33,8 +33,6 @@ public class Rental implements Serializable{
     @OneToOne
     private Employee employee;
     @OneToOne
-    private Order order;
-    @OneToOne
     private Movie movie;
 
     public Integer getId() {
@@ -59,14 +57,6 @@ public class Rental implements Serializable{
 
     public void setEmployee(Employee employee) {
         this.employee = employee;
-    }
-
-    public Order getOrder() {
-        return order;
-    }
-
-    public void setOrder(Order order) {
-        this.order = order;
     }
 
     public Movie getMovie() {
