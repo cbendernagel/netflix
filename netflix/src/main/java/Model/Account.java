@@ -31,6 +31,7 @@ public class Account implements Serializable{
     private Timestamp dateOpened;
     @OneToOne
     private AccountType acctType;
+    @OneToOne
     private Customer customer;
     
     public Integer getId(){

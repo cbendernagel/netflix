@@ -11,6 +11,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 /**
@@ -27,6 +28,7 @@ public class Person implements Serializable{
     private String lastName;
     private String firstName;
     private String address;
+    @OneToOne
     private Location location;
     private Integer telephone;
 

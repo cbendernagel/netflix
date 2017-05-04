@@ -1,0 +1,158 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!-- was: <?xml version="1.0" encoding="UTF-8"?> -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+       http://www.springframework.org/schema/mvc
+       http://www.springframework.org/schema/mvc/spring-mvc.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd" 
+       >
+
+    <context:component-scan base-package="Controllers"/>
+    
+    <bean id="HandlerMapping" class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping" />
+    
+    <mvc:resources mapping="/resources/**" location="/resources/css" />
+    <mvc:annotation-driven />
+    <mvc:view-controller path="/" view-name="index"/>
+    
+    
+
+    <bean id="movieService" class="Services.MovieService">
+        <property name="movieDAO" ref="movieDAO"></property>
+    </bean>
+    <bean id="accountService" class="Services.AccountService">
+        <property name="accountDAO" ref="accountDAO"></property>
+    </bean>
+    <bean id="accountTypeService" class="Services.AccountTypeService">
+        <property name="accountTypeDAO" ref="accountTypeDAO"></property>
+    </bean>
+    <bean id="actorService" class="Services.ActorService">
+        <property name="actorDAO" ref="actorDAO"></property>
+    </bean>
+    <bean id="appearedInService" class="Services.AppearedInService">
+        <property name="appearedInDAO" ref="appearedInDAO"></property>
+    </bean>
+    <bean id="customerService" class="Services.CustomerService">
+        <property name="customerDAO" ref="customerDAO"></property>
+    </bean>
+    <bean id="employeeService" class="Services.EmployeeService">
+        <property name="employeeDAO" ref="employeeDAO"></property>
+    </bean>
+    <bean id="locationService" class="Services.LocationService">
+        <property name="locationDAO" ref="locationDAO"></property>
+    </bean>
+    <bean id="movieQService" class="Services.MovieQService">
+        <property name="movieQDAO" ref="movieQDAO"></property>
+    </bean>
+    <bean id="orderService" class="Services.OrderService">
+        <property name="orderDAO" ref="orderDAO"></property>
+    </bean>
+    <bean id="personService" class="Services.PersonService">
+        <property name="personDAO" ref="personDAO"></property>
+    </bean>
+    <bean id="rentalService" class="Services.RentalService">
+        <property name="rentalDAO" ref="rentalDAO"></property>
+    </bean>
+    <bean id="accountDAO" class="Dao.AccountDAO">
+        <property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
+    </bean>
+    <bean id="accountTypeDAO" class="Dao.AccountTypeDAO">
+        <property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
+    </bean>
+    <bean id="actorDAO" class="Dao.ActorDAO">
+        <property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
+    </bean>
+    <bean id="appearedInDAO" class="Dao.AppearedInDAO">
+        <property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
+    </bean>
+    <bean id="customerDAO" class="Dao.CustomerDAO">
+        <property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
+    </bean>
+    <bean id="employeeDAO" class="Dao.EmployeeDAO">
+        <property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
+    </bean>
+    <bean id="locationDAO" class="Dao.LocationDAO">
+        <property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
+    </bean>
+    <bean id="movieDAO" class="Dao.MovieDAO">
+        <property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
+    </bean>
+    <bean id="movieQDAO" class="Dao.MovieQDAO">
+        <property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
+    </bean>
+    <bean id="orderDAO" class="Dao.OrderDAO">
+        <property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
+    </bean>
+    <bean id="personDAO" class="Dao.PersonDAO">
+        <property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
+    </bean>
+    <bean id="rentalDAO" class="Dao.RentalDAO">
+        <property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
+    </bean>
+    <bean id="viewResolver"
+        class="org.springframework.web.servlet.view.InternalResourceViewResolver"
+        p:prefix="/WEB-INF/jsp/"
+        p:suffix=".jsp" />
+    
+    
+     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
+		destroy-method="close">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver" ></property>
+		<property name="url"
+			value="jdbc:mysql://LocalDb\CSE305" ></property>
+		<property name="username" value="qwerty" ></property>
+		<property name="password" value="cheeseballs" ></property>
+    </bean>
+    
+    <bean id="hibernate4AnnotatedSessionFactory"
+        class="org.springframework.orm.hibernate4.LocalSessionFactoryBean"
+        p:packagesToScan="Model">
+        <property name="dataSource" ref="dataSource" ></property>
+        <property name="annotatedClasses">
+            <list>
+                    <value>Model.Account</value>
+                    <value>Model.AccountType</value>
+                    <value>Model.Actor</value>
+                    <value>Model.AppearedIn</value>
+                    <value>Model.Customer</value>
+                    <value>Model.Employee</value>
+                    <value>Model.Location</value>
+                    <value>Model.Movie</value>
+                    <value>Model.MovieQ</value>
+                    <value>Model.Order</value>
+                    <value>Model.Person</value>
+                    <value>Model.Rental</value>
+
+            </list>
+        </property>
+        <property name="hibernateProperties">
+                <props>
+                        <prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+                        <prop key="hibernate.hbm2ddl.auto">update</prop>
+                        <prop key="hibernate.show_sql">true</prop>
+                </props>
+        </property>
+
+    </bean>    
+
+    
+    
+	
+	<tx:annotation-driven transaction-manager="transactionManager"/>
+	
+    <bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+            <property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory"></property>
+    </bean>
+    
+    <bean name="indexController" class="org.springframework.web.servlet.mvc.ParameterizableViewController" p:viewName="index" />
+
+</beans>

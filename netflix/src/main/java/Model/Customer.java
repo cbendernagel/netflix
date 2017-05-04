@@ -13,6 +13,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 /**
@@ -25,6 +26,7 @@ public class Customer implements Serializable{
     
     @Id
     @Column
+    @OneToOne
     private Person person;
     private String email;
     private Integer rating;
