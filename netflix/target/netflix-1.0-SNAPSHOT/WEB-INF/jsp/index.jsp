@@ -170,7 +170,7 @@
                             <ul class="footer-nav">
                                 <li><a href="/netflix/#">Sitemap</a>
                                 </li>
-                                <li><a href="/netflix/#">Privacy Policy</a>
+                                <li><a href="/netflix/helppage#">help</a>
                                 </li>
                                 <li><a href="/netflix/#">Contact</a>
                                 </li>
