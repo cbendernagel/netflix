@@ -26,11 +26,13 @@ public class Customer implements Serializable{
     
     @Id
     @Column
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Integer id;
     @OneToOne
     private Person person;
     private String email;
     private Integer rating;
-    private Integer ccn;
+    private String ccn;
 
     public Person getPerson() {
         return person;
@@ -56,11 +58,11 @@ public class Customer implements Serializable{
         this.rating = rating;
     }
 
-    public Integer getCcn() {
+    public String getCcn() {
         return ccn;
     }
 
-    public void setCcn(Integer ccn) {
+    public void setCcn(String ccn) {
         this.ccn = ccn;
     }
     

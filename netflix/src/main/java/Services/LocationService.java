@@ -42,13 +42,8 @@ public class LocationService {
 
 	
 	@Transactional
-	public Location getLocationById(int id) {
+	public Location getLocationById(Integer id) {
 		return this.locationDAO.getLocationById(id);
-	}
-        
-        @Transactional
-	public Location getLocationByEmail(String email) {
-		return this.locationDAO.getLocationByEmail(email);
 	}
 	
 	@Transactional

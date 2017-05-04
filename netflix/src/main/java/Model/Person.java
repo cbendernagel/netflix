@@ -24,21 +24,21 @@ public class Person implements Serializable{
     
     @Id
     @Column
-    private Integer ssn;
+    private String ssn;
     private String lastName;
     private String firstName;
     private String address;
     @OneToOne
     private Location location;
-    private Integer telephone;
+    private String telephone;
 
     public Person(){}
 
-    public Integer getSsn() {
+    public String getSsn() {
         return ssn;
     }
 
-    public void setSsn(Integer ssn) {
+    public void setSsn(String ssn) {
         this.ssn = ssn;
     }
 
@@ -74,11 +74,11 @@ public class Person implements Serializable{
         this.location = location;
     }
     
-    public void setTelephone(Integer telephone){
+    public void setTelephone(String telephone){
         this.telephone = telephone;
     }
     
-    public Integer getTelephone(){
+    public String getTelephone(){
         return telephone;
     }
 }

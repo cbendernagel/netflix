@@ -55,24 +55,12 @@ public class LocationDAO{
     }
 
     
-    public Location getLocationById(int id) {
+    public Location getLocationById(Integer id) {
             Session session = this.sessionFactory.getCurrentSession();		
-            Location u = (Location) session.load(Location.class, new Integer(id));
+            Location u = (Location) session.load(Location.class, id);
             logger.info("Location loaded successfully, Location details="+u);
             return u;
     }
-    
-    public Location getLocationByEmail(String email) {
-            Session session = this.sessionFactory.getCurrentSession();	
-            List locations = session.createCriteria(Location.class).add(Restrictions.eq("email", email)).list();
-            if (locations.isEmpty()){
-                return null;
-            }
-            Location u = (Location) locations.get(0);
-            logger.info("Location loaded successfully, Location details="+u);
-            return u;
-    }
-
     
     public void removeLocation(int id) {
             Session session = this.sessionFactory.getCurrentSession();

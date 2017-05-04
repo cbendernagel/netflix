@@ -53,20 +53,28 @@ public class SignUpPageController{
     }
     
     @RequestMapping(value = "/register", method = RequestMethod.POST)
-    protected ModelAndView register(@RequestParam("email") String email, @RequestParam("address") String address,@RequestParam("firstname") String firstname,@RequestParam("lastname") String lastname, @RequestParam("city") String city , @RequestParam("ccn") Integer ccn , @RequestParam("tate") String state,@RequestParam("zip") Integer zip, @RequestParam("accounttype") String accounttype, @RequestParam("telephone") Integer telephone, @RequestParam("ssn") Integer ssn, HttpServletRequest request){
+    protected ModelAndView register(@RequestParam("email") String email, @RequestParam("address") String address,@RequestParam("firstname") String firstname,@RequestParam("lastname") String lastname, @RequestParam("city") String city , @RequestParam("ccn") String ccn , @RequestParam("state") String state,@RequestParam("zip") String zip, @RequestParam("accounttype") String accounttype, @RequestParam("telephone") String telephone, @RequestParam("ssn") String ssn, HttpServletRequest request){
         ModelAndView modelandview;
         
-        if (accountService.getAccountByEmail(email) != null){
+        if (customerService.getCustomerByEmail(email) != null){
             request.setAttribute("UsedEmail", "The email You have selected is already attached to an account");
             modelandview = new ModelAndView("signuppage");
             return modelandview;
         }
         else{
-            
+            Location l;
+            if((l = locationService.getLocationById(new Integer(zip))) != null);
+            else
+            {
+                l = new Location();
+                l.setCity(city);
+                l.setState(state);
+                l.setZipcode(new Integer(zip));
+                locationService.addLocation(l);
+            }
             Account a = new Account();
             Person p = new Person();
             Customer c = new Customer();
-            Location l = new Location();
             AccountType accountType = new AccountType();
             
             a.setCustomer(c);
@@ -79,6 +87,7 @@ public class SignUpPageController{
             Timestamp currentTimestamp = new java.sql.Timestamp(now.getTime());
             a.setTimestamp(currentTimestamp);
     
+            p.setSsn(ssn);
             p.setLastName(lastname);
             p.setFirstName(firstname);
             p.setAddress(address);
@@ -89,14 +98,9 @@ public class SignUpPageController{
             c.setEmail(email);
             c.setPerson(p);
             
-            l.setCity(city);
-            l.setState(state);
-            l.setZipcode(zip);
-    
             personService.addPerson(p);
-            accountService.addAccount(a);
-            locationService.addLocation(l);
             customerService.addCustomer(c);
+            accountService.addAccount(a);
             
             HttpSession session = request.getSession();
             session.setAttribute("account", a);   
