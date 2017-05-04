@@ -117,7 +117,7 @@ public class ManagerController{
     @RequestMapping(value = "/addEmployee", method = RequestMethod.POST)
     protected ModelAndView addEmployee(@RequestParam("ssn") String ssn,@RequestParam("address") String address ,@RequestParam("firstName") String firstName,@RequestParam("lastName") String lastName, @RequestParam("zipcode") int zipcode, @RequestParam("city")String city,@RequestParam("state")String state,@RequestParam("telephone")String telephone,@RequestParam("hourlyRate")int hourlyRate, @RequestParam("type")String type, HttpServletRequest request){
         ModelAndView modelandview;
-            
+           System.out.println("REQUESTED TO ADD EMPLOYER");
            Location l;
            if(locationService.getLocationById(zipcode) != null)
             {
@@ -153,7 +153,7 @@ public class ManagerController{
     }
     
      @RequestMapping(value = "/editEmployee", method = RequestMethod.POST)
-    protected ModelAndView editEmployee(@RequestParam("empid")int empid,@RequestParam("ssn") String ssn,@RequestParam("address") String address ,@RequestParam("firstName") String firstName,@RequestParam("lastName") String lastName, @RequestParam("zipcode") int zipcode, @RequestParam("city")String city,@RequestParam("state")String state,@RequestParam("telephone")String telephone,@RequestParam("hourlyRate")int hourlyRate, @RequestParam("startDate") Timestamp startDate,@RequestParam("type")String type, HttpServletRequest request){
+    protected ModelAndView editEmployee(@RequestParam("empid")int empid,@RequestParam("ssn") String ssn,@RequestParam("address") String address ,@RequestParam("firstName") String firstName,@RequestParam("lastName") String lastName, @RequestParam("zipcode") int zipcode, @RequestParam("city")String city,@RequestParam("state")String state,@RequestParam("telephone")String telephone,@RequestParam("hourlyRate")int hourlyRate,@RequestParam("type")String type, HttpServletRequest request){
         ModelAndView modelandview;
             
             Employee e = employeeService.getEmployeeById(empid);
@@ -183,11 +183,31 @@ public class ManagerController{
            personService.updatePerson(p);
            
            e.setPerson(p);
-           e.setStartDate(startDate);
            e.setHourlyRate(hourlyRate);
            e.setType(type);
+           Calendar calendar = Calendar.getInstance();
+            java.util.Date now = calendar.getTime();
+            Timestamp currentTimestamp = new java.sql.Timestamp(now.getTime());
+            e.setStartDate(currentTimestamp);
            employeeService.updateEmployee(e);
            
+           
+        modelandview = new ModelAndView("manager");
+        return modelandview;
+    }
+    
+    @RequestMapping(value = "/deleteEmployee", method = RequestMethod.POST)
+    protected ModelAndView deleteEmployee(@RequestParam("empid")int empid, HttpServletRequest request){
+        ModelAndView modelandview;
+            
+         if(employeeService.getEmployeeById(empid)!= null){
+           employeeService.removeEmployee(empid);
+         }else{
+            request.setAttribute("NoId", "No employee matches with given Id");
+            modelandview = new ModelAndView("manager");
+            return modelandview;
+         }
+
            
         modelandview = new ModelAndView("manager");
         return modelandview;

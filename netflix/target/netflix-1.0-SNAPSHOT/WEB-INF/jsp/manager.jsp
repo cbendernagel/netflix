@@ -265,11 +265,6 @@
                         </div>
                         
                         <div class="controls">
-                            <input type="text" name="startDate" id="startDate" placeholder="Start Date">
-                            <div class="help-block with-errors"></div>
-                        </div>
-                        
-                        <div class="controls">
                             <input type="text" name="type" id="type" placeholder="Employee Position" required data-error="Please enter the Position">
                             <div class="help-block with-errors"></div>
                         </div>
@@ -283,7 +278,26 @@
 
         </div>
         <!-- Delete an Employee -->
-        
+        <div class="spacing container joinmargin">
+
+            <div class="row">
+                <div class="col-md-6 spacing border">
+
+                    <h1 class="spacing">DELETE EMPLOYEE<font color="EA6630"><b></b></font></h1>
+                    <form role="form" id="contactForm" class="signupform spacing" data-toggle="validator" class="shake" method="POST" action="/netflix/deleteEmployee">
+                        
+                        <div class="controls">
+                            <input type="text" name="empid" id="empid" placeholder="Employee Id" required data-error="Please enter the Employee Id">
+                            <div class="help-block with-errors"></div>
+                        </div>
+                        <input type="submit" name="button" value="Delete Employee" class="btn-system btn-large btn-gray joinbutton spacing">
+
+                    </form>
+
+                </div>
+            </div>
+
+        </div>
         <!-- Start Footer Section -->
         <footer class="itemcenter">
             <div class="container">
